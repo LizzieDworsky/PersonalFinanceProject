@@ -5,3 +5,4 @@ from django.db import models
 
 class Category(models.Model):
     name = models.CharField(max_length=40)
+    recommended_percent = models.PositiveSmallIntegerField(blank=True)
