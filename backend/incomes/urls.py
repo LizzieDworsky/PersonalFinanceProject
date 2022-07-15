@@ -3,5 +3,6 @@ from incomes import views
 
 
 urlpatterns = [
-    path("all", views.get_all_incomes)
+    path("all", views.get_all_incomes),
+    path("", views.user_income),
 ]
