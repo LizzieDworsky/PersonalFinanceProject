@@ -34,8 +34,7 @@ def change_user_budgets(request, pk):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     elif request.method == "PUT":
-        user_budget = Budget.objects.filter(user_id=request.user.id)
-        budget_line = user_budget.filter(category_id=pk)
+        budget_line = get_object_or_404(Budget, user_id=request.user.id, category_id=pk)
         serializer = BudgetSerializer(budget_line, data=request.data)
         if serializer.is_valid():
             serializer.save()
