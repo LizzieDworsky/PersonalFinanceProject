@@ -4,5 +4,5 @@ from budgets import views
 
 urlpatterns = [
     path("all", views.get_all_budgets),
-    # path("", views.user_income),
+    path("", views.user_budgets),
 ]

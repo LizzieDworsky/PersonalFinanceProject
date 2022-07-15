@@ -13,3 +13,11 @@ def get_all_budgets(request):
     budgets = Budget.objects.all()
     serializer = BudgetSerializer(budgets, many=True)
     return Response(serializer.data)
+
+@api_view(["GET"])
+@permission_classes([IsAuthenticated])
+def user_budgets(request):
+    if request.method == "GET":
+        all_user_budgets = Budget.objects.filter(user_id=request.user.id)
+        serializer = BudgetSerializer(all_user_budgets, many=True)
+        return Response(serializer.data)
