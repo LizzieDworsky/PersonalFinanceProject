@@ -9,3 +9,4 @@ class Budget(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     dollar_amount = models.DecimalField(max_digits=8, decimal_places=2)
     personal_percent = models.PositiveSmallIntegerField(blank=True)
+    depth = 1

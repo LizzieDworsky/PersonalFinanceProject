@@ -24,11 +24,11 @@ def user_income(request):
             serializer.save(user=request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    if request.method == "GET":
+    elif request.method == "GET":
         user_income = get_object_or_404(Income, user_id=request.user.id)
         serializer = IncomeSerializer(user_income)
         return Response(serializer.data)
-    if request.method == "PUT":
+    elif request.method == "PUT":
         user_income = get_object_or_404(Income, user_id=request.user.id)
         serializer = IncomeSerializer(user_income, data=request.data)
         if serializer.is_valid():
