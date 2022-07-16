@@ -14,9 +14,27 @@ def get_all_debts(request):
     serializer = DebtSerializer(debts, many=True)
     return Response(serializer.data)
 
-@api_view(["GET"])
+@api_view(["GET", "POST"])
 @permission_classes([IsAuthenticated])
-def get_user_debts(request):
-    all_user_debt = Debt.objects.filter(user_id=request.user.id)
-    serializer = DebtSerializer(all_user_debt, many=True)
-    return Response(serializer.data)
+def user_debts(request):
+    if request.method == "GET":
+        all_user_debt = Debt.objects.filter(user_id=request.user.id)
+        serializer = DebtSerializer(all_user_debt, many=True)
+        return Response(serializer.data)
+    elif request.method == "POST":
+        serializer = DebtSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save(user=request.user)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+api_view(["PUT"])
+@permission_classes([IsAuthenticated])
+def user_update_debt(request, pk):
+    user_debt = get_object_or_404(Debt, pk=pk)
+    serializer = DebtSerializer(user_debt, data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

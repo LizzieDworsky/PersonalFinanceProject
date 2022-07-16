@@ -15,7 +15,7 @@ def get_all_savings_investments(request):
     return Response(serializer.data)
 
 
-@api_view(["GET", "POST", "PUT"])
+@api_view(["GET", "POST"])
 @permission_classes([IsAuthenticated])
 def user_savings_investments(request):
     if request.method == "GET":
@@ -28,8 +28,6 @@ def user_savings_investments(request):
             serializer.save(user=request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    elif request.method == "PUT":
-        user_saving_invest = get_object_or_404(SavingInvestment, )
 
 
 @api_view(["PUT"])
