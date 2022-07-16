@@ -13,3 +13,11 @@ def get_all_savings_investments(request):
     saves_invests = SavingInvestment.objects.all()
     serializer = SavingInvestmentSerializer(saves_invests, many=True)
     return Response(serializer.data)
+
+
+@api_view(["GET"])
+@permission_classes([IsAuthenticated])
+def get_user_savings_investments(request):
+    all_user_sav_invest = SavingInvestment.objects.filter(user_id=request.user.id)
+    serializer = SavingInvestmentSerializer(all_user_sav_invest, many=True)
+    return Response(serializer.data)
