@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'incomes.apps.IncomesConfig',
     'categories.apps.CategoriesConfig',
     'budgets.apps.BudgetsConfig',
+    'debts.apps.DebtsConfig',
+    'savings_investments.apps.SavingsInvestmentsConfig',
 ]
 
 MIDDLEWARE = [
