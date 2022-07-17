@@ -13,7 +13,7 @@ from .serializers import IncomeSerializer
 def get_all_incomes(request):
     incomes = Income.objects.all()
     serializer = IncomeSerializer(incomes, many=True)
-    return Response(serializer.data)
+    return Response(serializer.data, status=status.HTTP_200_OK)
 
 @api_view(["POST", "PUT", "GET"])
 @permission_classes([IsAuthenticated])
@@ -27,7 +27,9 @@ def user_income(request):
     elif request.method == "GET":
         user_income = get_object_or_404(Income, user_id=request.user.id)
         serializer = IncomeSerializer(user_income)
-        return Response(serializer.data)
+        if serializer.is_valid():
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     elif request.method == "PUT":
         user_income = get_object_or_404(Income, user_id=request.user.id)
         serializer = IncomeSerializer(user_income, data=request.data)

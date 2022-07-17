@@ -13,14 +13,14 @@ from .serializer import BudgetSerializer
 def get_all_budgets(request):
     budgets = Budget.objects.all()
     serializer = BudgetSerializer(budgets, many=True)
-    return Response(serializer.data)
+    return Response(serializer.data, status=status.HTTP_200_OK)
 
 @api_view(["GET"])
 @permission_classes([IsAuthenticated])
 def get_user_budgets(request):
     all_user_budgets = Budget.objects.filter(user_id=request.user.id)
     serializer = BudgetSerializer(all_user_budgets, many=True)
-    return Response(serializer.data)
+    return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 @api_view(["POST", "PUT"])

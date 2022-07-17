@@ -12,7 +12,7 @@ from .serializers import SavingInvestmentSerializer
 def get_all_savings_investments(request):
     saves_invests = SavingInvestment.objects.all()
     serializer = SavingInvestmentSerializer(saves_invests, many=True)
-    return Response(serializer.data)
+    return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 @api_view(["GET", "POST"])
@@ -21,7 +21,7 @@ def user_savings_investments(request):
     if request.method == "GET":
         all_user_sav_invest = SavingInvestment.objects.filter(user_id=request.user.id)
         serializer = SavingInvestmentSerializer(all_user_sav_invest, many=True)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
     elif request.method == "POST":
         serializer = SavingInvestmentSerializer(data=request.data)
         if serializer.is_valid():

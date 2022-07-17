@@ -12,7 +12,7 @@ from .serializers import DebtSerializer
 def get_all_debts(request):
     debts = Debt.objects.all()
     serializer = DebtSerializer(debts, many=True)
-    return Response(serializer.data)
+    return Response(serializer.data, status=status.HTTP_200_OK)
 
 @api_view(["GET", "POST"])
 @permission_classes([IsAuthenticated])
@@ -20,7 +20,7 @@ def user_debts(request):
     if request.method == "GET":
         all_user_debt = Debt.objects.filter(user_id=request.user.id)
         serializer = DebtSerializer(all_user_debt, many=True)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
     elif request.method == "POST":
         serializer = DebtSerializer(data=request.data)
         if serializer.is_valid():
