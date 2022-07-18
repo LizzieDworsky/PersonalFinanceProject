@@ -30,6 +30,24 @@ const HomePage = () => {
         }
     }
 
+    async function createIncome(newIncome) {
+        try {
+            let response = await axios.post(
+                "http://127.0.0.1:8000/api/incomes/",
+                newIncome,
+                {
+                    headers: {
+                        Authorization: "Bearer " + token,
+                    },
+                }
+            );
+            setIncome(response.data);
+            getIncome();
+        } catch (error) {
+            console.log(error.response.data);
+        }
+    }
+
     async function updateIncome(newIncome) {
         try {
             let response = await axios.put(
@@ -53,7 +71,7 @@ const HomePage = () => {
             {income ? (
                 <Income state={income} updateIncome={updateIncome} />
             ) : (
-                <CreateIncome />
+                <CreateIncome createIncome={createIncome} />
             )}
         </div>
     );
