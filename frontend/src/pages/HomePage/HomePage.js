@@ -30,7 +30,7 @@ const HomePage = () => {
         }
     }
 
-    return <div>{income ? <Income /> : <CreateIncome />}</div>;
+    return <div>{income ? <Income state={income} /> : <CreateIncome />}</div>;
 };
 
 export default HomePage;
