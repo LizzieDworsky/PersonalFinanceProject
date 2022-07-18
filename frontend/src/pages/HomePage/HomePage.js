@@ -30,7 +30,32 @@ const HomePage = () => {
         }
     }
 
-    return <div>{income ? <Income state={income} /> : <CreateIncome />}</div>;
+    async function updateIncome(newIncome) {
+        try {
+            let response = await axios.put(
+                "http://127.0.0.1:8000/api/incomes/",
+                newIncome,
+                {
+                    headers: {
+                        Authorization: "Bearer: " + token,
+                    },
+                }
+            );
+            setIncome(response.date);
+        } catch (error) {
+            console.log(error.response.data);
+        }
+    }
+
+    return (
+        <div>
+            {income ? (
+                <Income state={income} updateIncome={updateIncome} />
+            ) : (
+                <CreateIncome />
+            )}
+        </div>
+    );
 };
 
 export default HomePage;

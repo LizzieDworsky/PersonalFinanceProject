@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Income = ({ state }) => {
+const Income = ({ state, updateIncome }) => {
     const [yearly, setYearly] = useState();
     const [monthly, setMonthly] = useState();
 
@@ -10,7 +10,7 @@ const Income = ({ state }) => {
             yearly: yearly,
             monthly: monthly,
         };
-        console.log(tempIncome);
+        await updateIncome(tempIncome);
     }
 
     return (
