@@ -104,6 +104,22 @@ const HomePage = () => {
         }
     }
 
+    async function createBudget(categoryId, newBudgetLine) {
+        try {
+            let response = await axios.post(
+                "http://127.0.0.1:8000/api/budgets/" + categoryId,
+                newBudgetLine,
+                {
+                    headers: {
+                        Authorization: "Bearer " + token,
+                    },
+                }
+            );
+        } catch (error) {
+            console.log(error.response.data);
+        }
+    }
+
     return (
         <div>
             {income ? (
@@ -112,7 +128,11 @@ const HomePage = () => {
                 <CreateIncome createIncome={createIncome} />
             )}
             {income ? (
-                <Budget budgetsArray={budgets} categoriesArray={categories} />
+                <Budget
+                    budgetsArray={budgets}
+                    categoriesArray={categories}
+                    income={income}
+                />
             ) : null}
             {income ? <h1>Debt Here</h1> : null}
             {income ? <h1>Saving/Investment Here</h1> : null}
