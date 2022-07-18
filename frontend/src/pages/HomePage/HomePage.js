@@ -12,18 +12,13 @@ const HomePage = () => {
     const [income, setIncome] = useState();
     const [budgets, setBudgets] = useState([]);
     const [categories, setCategories] = useState([]);
+    const [rerender, setRerender] = useState(false);
 
     useEffect(() => {
         getIncome();
-    }, []);
-
-    useEffect(() => {
         getBudgets();
-    }, []);
-
-    useEffect(() => {
         getCategories();
-    }, []);
+    }, [rerender]);
 
     async function getIncome() {
         try {
@@ -104,20 +99,25 @@ const HomePage = () => {
         }
     }
 
-    async function createBudget(categoryId, newBudgetLine) {
-        try {
-            let response = await axios.post(
-                "http://127.0.0.1:8000/api/budgets/" + categoryId,
-                newBudgetLine,
-                {
-                    headers: {
-                        Authorization: "Bearer " + token,
-                    },
-                }
-            );
-        } catch (error) {
-            console.log(error.response.data);
-        }
+    async function createBudget(arrayOfStuff) {
+        axios
+            .all(
+                arrayOfStuff.map((element) =>
+                    axios.post(
+                        "http://127.0.0.1:8000/api/budgets/" + element[0],
+                        element[1],
+                        {
+                            headers: {
+                                Authorization: "Bearer " + token,
+                            },
+                        }
+                    )
+                )
+            )
+            .then((data) => {
+                console.log(data);
+                setRerender(!rerender);
+            });
     }
 
     return (
