@@ -73,6 +73,11 @@ const HomePage = () => {
             ) : (
                 <CreateIncome createIncome={createIncome} />
             )}
+            {income ? <h1>Budget Here</h1> : null}
+            {income ? <h1>Debt Here</h1> : null}
+            {income ? <h1>Saving/Investment Here</h1> : null}
+            {income ? <h1>Net Worth Here</h1> : null}
+            {income ? <h1>Finance Over Time Chart Here</h1> : null}
         </div>
     );
 };
