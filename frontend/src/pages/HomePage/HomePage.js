@@ -5,13 +5,19 @@ import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import Income from "../../components/Income";
 import CreateIncome from "../../components/CreateIncome";
+import Budget from "../../components/Budget";
 
 const HomePage = () => {
     const [user, token] = useAuth();
     const [income, setIncome] = useState();
+    const [budgets, setBudgets] = useState([]);
 
     useEffect(() => {
         getIncome();
+    }, []);
+
+    useEffect(() => {
+        getBudgets();
     }, []);
 
     async function getIncome() {
@@ -66,6 +72,22 @@ const HomePage = () => {
         }
     }
 
+    async function getBudgets() {
+        try {
+            let response = await axios.get(
+                "http://127.0.0.1:8000/api/budgets/",
+                {
+                    headers: {
+                        Authorization: "Bearer " + token,
+                    },
+                }
+            );
+            setBudgets(response.data);
+        } catch (error) {
+            console.log(error.response.data);
+        }
+    }
+
     return (
         <div>
             {income ? (
@@ -73,7 +95,7 @@ const HomePage = () => {
             ) : (
                 <CreateIncome createIncome={createIncome} />
             )}
-            {income ? <h1>Budget Here</h1> : null}
+            {income ? <Budget budgetsArray={budgets} /> : null}
             {income ? <h1>Debt Here</h1> : null}
             {income ? <h1>Saving/Investment Here</h1> : null}
             {income ? <h1>Net Worth Here</h1> : null}
