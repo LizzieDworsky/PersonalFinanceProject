@@ -132,6 +132,7 @@ const HomePage = () => {
                     budgetsArray={budgets}
                     categoriesArray={categories}
                     income={income}
+                    createBudget={createBudget}
                 />
             ) : null}
             {income ? <h1>Debt Here</h1> : null}

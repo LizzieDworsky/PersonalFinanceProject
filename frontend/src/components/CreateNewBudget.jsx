@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
-const CreateNewBudget = ({ categoriesArray, income }) => {
+const CreateNewBudget = ({ categoriesArray, income, createBudget }) => {
     async function createUserBudget(event) {
         categoriesArray.map((item) => {
             let itemPercent = item.recommended_percent;
@@ -10,7 +10,8 @@ const CreateNewBudget = ({ categoriesArray, income }) => {
                 dollar_amount: itemAmount,
                 personal_percent: itemPercent,
             };
-            return console.log(currentBudgetLine);
+            createBudget(item.id, currentBudgetLine);
+            window.location.reload();
         });
     }
 

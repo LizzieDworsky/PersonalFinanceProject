@@ -2,7 +2,7 @@ import React from "react";
 import BudgetMapper from "./BudgetMapper";
 import CreateNewBudget from "./CreateNewBudget";
 
-const Budget = ({ budgetsArray, categoriesArray, income }) => {
+const Budget = ({ budgetsArray, categoriesArray, income, createBudget }) => {
     return (
         <div>
             <h2>Your Budget Matters</h2>
@@ -12,6 +12,7 @@ const Budget = ({ budgetsArray, categoriesArray, income }) => {
                 <CreateNewBudget
                     categoriesArray={categoriesArray}
                     income={income}
+                    createBudget={createBudget}
                 />
             )}
         </div>
