@@ -37,11 +37,12 @@ const HomePage = () => {
                 newIncome,
                 {
                     headers: {
-                        Authorization: "Bearer: " + token,
+                        Authorization: "Bearer " + token,
                     },
                 }
             );
             setIncome(response.date);
+            getIncome();
         } catch (error) {
             console.log(error.response.data);
         }
