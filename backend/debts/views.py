@@ -29,7 +29,7 @@ def user_debts(request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-api_view(["PUT"])
+@api_view(["PUT"])
 @permission_classes([IsAuthenticated])
 def user_update_debt(request, pk):
     user_debt = get_object_or_404(Debt, pk=pk)
