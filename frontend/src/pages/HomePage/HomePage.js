@@ -11,6 +11,7 @@ const HomePage = () => {
     const [user, token] = useAuth();
     const [income, setIncome] = useState();
     const [budgets, setBudgets] = useState([]);
+    const [categories, setCategories] = useState([]);
 
     useEffect(() => {
         getIncome();
@@ -18,6 +19,10 @@ const HomePage = () => {
 
     useEffect(() => {
         getBudgets();
+    }, []);
+
+    useEffect(() => {
+        getCategories();
     }, []);
 
     async function getIncome() {
@@ -88,6 +93,17 @@ const HomePage = () => {
         }
     }
 
+    async function getCategories() {
+        try {
+            let response = await axios.get(
+                "http://127.0.0.1:8000/api/categories/all"
+            );
+            setCategories(response.data);
+        } catch (error) {
+            console.log(error.response.data);
+        }
+    }
+
     return (
         <div>
             {income ? (
@@ -95,7 +111,9 @@ const HomePage = () => {
             ) : (
                 <CreateIncome createIncome={createIncome} />
             )}
-            {income ? <Budget budgetsArray={budgets} /> : null}
+            {income ? (
+                <Budget budgetsArray={budgets} categoriesArray={categories} />
+            ) : null}
             {income ? <h1>Debt Here</h1> : null}
             {income ? <h1>Saving/Investment Here</h1> : null}
             {income ? <h1>Net Worth Here</h1> : null}

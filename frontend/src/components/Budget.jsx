@@ -1,11 +1,16 @@
 import React from "react";
 import BudgetMapper from "./BudgetMapper";
+import CreateNewBudget from "./CreateNewBudget";
 
-const Budget = ({ budgetsArray }) => {
+const Budget = ({ budgetsArray, categoriesArray }) => {
     return (
         <div>
             <h2>Your Budget Matters</h2>
-            <BudgetMapper budgetsArray={budgetsArray} />
+            {budgetsArray[0] ? (
+                <BudgetMapper budgetsArray={budgetsArray} />
+            ) : (
+                <CreateNewBudget categoriesArray={categoriesArray} />
+            )}
         </div>
     );
 };
