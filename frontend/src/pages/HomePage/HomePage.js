@@ -8,7 +8,7 @@ import CreateIncome from "../../components/CreateIncome";
 
 const HomePage = () => {
     const [user, token] = useAuth();
-    const [income, setIncome] = useState([]);
+    const [income, setIncome] = useState();
 
     useEffect(() => {
         getIncome();
@@ -24,19 +24,13 @@ const HomePage = () => {
                     },
                 }
             );
-            console.log(response.data);
+            setIncome(response.data);
         } catch (error) {
             console.log(error.response.data);
         }
     }
 
-    return (
-        <div>
-            <CreateIncome />
-            <h1>Hello World</h1>
-            <Income />
-        </div>
-    );
+    return <div>{income ? <Income /> : <CreateIncome />}</div>;
 };
 
 export default HomePage;
