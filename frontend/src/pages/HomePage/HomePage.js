@@ -206,6 +206,7 @@ const HomePage = () => {
                     },
                 }
             );
+            getSavingsInvestments();
         } catch (error) {
             console.log(error.response.data);
         }
@@ -230,7 +231,12 @@ const HomePage = () => {
             {income ? (
                 <Debt arrayOfDebts={debt} createNewDebt={createNewDebt} />
             ) : null}
-            {income ? <SavingsInvestments arrayOfSavings={savings} /> : null}
+            {income ? (
+                <SavingsInvestments
+                    arrayOfSavings={savings}
+                    axiosCreateSavings={createNewSavingInvest}
+                />
+            ) : null}
             {income ? <NetWorth /> : null}
             {income ? <FinanceOverTime /> : null}
         </div>
