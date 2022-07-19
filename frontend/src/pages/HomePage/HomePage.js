@@ -13,12 +13,13 @@ import FinanceOverTime from "../../components/FinanceOverTime";
 
 const HomePage = () => {
     const [user, token] = useAuth();
-    const [income, setIncome] = useState({});
+    const [income, setIncome] = useState();
     const [budgets, setBudgets] = useState([]);
     const [categories, setCategories] = useState([]);
     const [rerender, setRerender] = useState(false);
     const [debt, setDebt] = useState([]);
     const [savings, setSavings] = useState([]);
+    const [newDebt, setNewDebt] = useState({});
 
     useEffect(() => {
         getIncome();
@@ -179,6 +180,24 @@ const HomePage = () => {
         }
     }
 
+    async function createNewDebt(tempNewDebt) {
+        try {
+            let response = await axios.post(
+                "http://127.0.0.1:8000/api/debts/",
+                tempNewDebt,
+                {
+                    headers: {
+                        Authorization: "Bearer " + token,
+                    },
+                }
+            );
+            console.log(response.data);
+            getDebt();
+        } catch (error) {
+            console.log(error.response.data);
+        }
+    }
+
     return (
         <div>
             {income ? (
@@ -195,7 +214,9 @@ const HomePage = () => {
                     axiosUpdateBudget={axiosUpdateBudget}
                 />
             ) : null}
-            {income ? <Debt arrayOfDebts={debt} /> : null}
+            {income ? (
+                <Debt arrayOfDebts={debt} createNewDebt={createNewDebt} />
+            ) : null}
             {income ? <SavingsInvestments arrayOfSavings={savings} /> : null}
             {income ? <NetWorth /> : null}
             {income ? <FinanceOverTime /> : null}
