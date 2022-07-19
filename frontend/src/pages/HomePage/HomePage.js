@@ -19,7 +19,6 @@ const HomePage = () => {
     const [rerender, setRerender] = useState(false);
     const [debt, setDebt] = useState([]);
     const [savings, setSavings] = useState([]);
-    const [newDebt, setNewDebt] = useState({});
 
     useEffect(() => {
         getIncome();
@@ -191,9 +190,22 @@ const HomePage = () => {
                     },
                 }
             );
-            setNewDebt(response.data);
-            console.log(newDebt);
             getDebt();
+        } catch (error) {
+            console.log(error.response.data);
+        }
+    }
+    async function createNewSavingInvest(tempNewSavInvest) {
+        try {
+            let response = await axios.post(
+                "http://127.0.0.1:8000/api/savinginvest/",
+                tempNewSavInvest,
+                {
+                    headers: {
+                        Authorization: "Bearer " + token,
+                    },
+                }
+            );
         } catch (error) {
             console.log(error.response.data);
         }
@@ -216,10 +228,7 @@ const HomePage = () => {
                 />
             ) : null}
             {income ? (
-                <Debt
-                    arrayOfDebts={debt}
-                    axiosCreateNewBudget={createNewDebt}
-                />
+                <Debt arrayOfDebts={debt} createNewDebt={createNewDebt} />
             ) : null}
             {income ? <SavingsInvestments arrayOfSavings={savings} /> : null}
             {income ? <NetWorth /> : null}

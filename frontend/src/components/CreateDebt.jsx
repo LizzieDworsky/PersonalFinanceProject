@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const CreateDebt = ({ axiosCreateNewBudget }) => {
+const CreateDebt = ({ createNewDebt }) => {
     const [debtName, setDebtName] = useState("");
     const [totalOwed, setTotalOwed] = useState("");
     const [minPayment, setMinPayment] = useState("");
@@ -12,7 +12,7 @@ const CreateDebt = ({ axiosCreateNewBudget }) => {
             total_owed: totalOwed,
             min_payment: minPayment,
         };
-        axiosCreateNewBudget(tempDebt);
+        createNewDebt(tempDebt);
     }
 
     return (

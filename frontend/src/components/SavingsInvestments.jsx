@@ -1,7 +1,7 @@
 import React from "react";
 import SavingsInvestmentsMapper from "./SavingsInvestmentsMapper";
 
-const SavingsInvestments = ({ arrayOfSavings }) => {
+const SavingsInvestments = ({ arrayOfSavings, axiosCreateSavings }) => {
     return (
         <div>
             <h2>Your Saving Matters</h2>
