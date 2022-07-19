@@ -3,7 +3,6 @@ import React from "react";
 const CreateNewBudget = ({ categoriesArray, income, createBudget }) => {
     async function callCreateBudget(event) {
         await createUserBudget(event);
-        //refreshPage();
     }
 
     async function createUserBudget(event) {
@@ -18,10 +17,6 @@ const CreateNewBudget = ({ categoriesArray, income, createBudget }) => {
             return [item.id, currentBudgetLine];
         });
         createBudget(result);
-    }
-
-    async function refreshPage() {
-        window.location.reload();
     }
 
     return (

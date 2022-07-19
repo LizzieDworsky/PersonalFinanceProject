@@ -7,7 +7,7 @@ const Budget = ({ budgetsArray, categoriesArray, income, createBudget }) => {
         <div>
             <h2>Your Budget Matters</h2>
             {budgetsArray[0] ? (
-                <BudgetMapper budgetsArray={budgetsArray} />
+                <BudgetMapper budgetsArray={budgetsArray} income={income} />
             ) : (
                 <CreateNewBudget
                     categoriesArray={categoriesArray}
