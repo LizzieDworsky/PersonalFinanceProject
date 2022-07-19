@@ -15,7 +15,7 @@ const Income = ({ state, updateIncome }) => {
 
     return (
         <div>
-            <h2>Your Money Matters</h2>
+            <h2>Your Income Matters</h2>
             <p>Yearly: {state.yearly}</p>
             <p>Monthly: {state.monthly}</p>
             <form onSubmit={(event) => handleUpdate(event)}>

@@ -6,6 +6,10 @@ import axios from "axios";
 import Income from "../../components/Income";
 import CreateIncome from "../../components/CreateIncome";
 import Budget from "../../components/Budget";
+import Debt from "../../components/Debt";
+import SavingsInvestments from "../../components/SavingsInvestments";
+import NetWorth from "../../components/NetWorth";
+import FinanceOverTime from "../../components/FinanceOverTime";
 
 const HomePage = () => {
     const [user, token] = useAuth();
@@ -158,10 +162,10 @@ const HomePage = () => {
                     axiosUpdateBudget={axiosUpdateBudget}
                 />
             ) : null}
-            {income ? <h1>Debt Here</h1> : null}
-            {income ? <h1>Saving/Investment Here</h1> : null}
-            {income ? <h1>Net Worth Here</h1> : null}
-            {income ? <h1>Finance Over Time Chart Here</h1> : null}
+            {income ? <Debt /> : null}
+            {income ? <SavingsInvestments /> : null}
+            {income ? <NetWorth /> : null}
+            {income ? <FinanceOverTime /> : null}
         </div>
     );
 };
