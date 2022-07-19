@@ -13,15 +13,19 @@ import FinanceOverTime from "../../components/FinanceOverTime";
 
 const HomePage = () => {
     const [user, token] = useAuth();
-    const [income, setIncome] = useState();
+    const [income, setIncome] = useState({});
     const [budgets, setBudgets] = useState([]);
     const [categories, setCategories] = useState([]);
     const [rerender, setRerender] = useState(false);
+    const [debt, setDebt] = useState([]);
+    const [savings, setSavings] = useState([]);
 
     useEffect(() => {
         getIncome();
         getBudgets();
         getCategories();
+        getDebt();
+        getSavingsInvestments();
     }, [rerender]);
 
     async function getIncome() {
@@ -144,6 +148,35 @@ const HomePage = () => {
                 setRerender(!rerender);
                 setUpdateBool(false);
             });
+    }
+
+    async function getDebt() {
+        try {
+            let response = await axios.get("http://127.0.0.1:8000/api/debts/", {
+                headers: {
+                    Authorization: "Bearer " + token,
+                },
+            });
+            setDebt(response.data);
+        } catch (error) {
+            console.log(error.response.data);
+        }
+    }
+
+    async function getSavingsInvestments() {
+        try {
+            let response = await axios.get(
+                "http://127.0.0.1:8000/api/savinginvest/",
+                {
+                    headers: {
+                        Authorization: "Bearer " + token,
+                    },
+                }
+            );
+            setSavings(response.data);
+        } catch (error) {
+            console.log(error.response.data);
+        }
     }
 
     return (
