@@ -195,8 +195,8 @@ const HomePage = () => {
                     axiosUpdateBudget={axiosUpdateBudget}
                 />
             ) : null}
-            {income ? <Debt /> : null}
-            {income ? <SavingsInvestments /> : null}
+            {income ? <Debt arrayOfDebts={debt} /> : null}
+            {income ? <SavingsInvestments arrayOfSavings={savings} /> : null}
             {income ? <NetWorth /> : null}
             {income ? <FinanceOverTime /> : null}
         </div>

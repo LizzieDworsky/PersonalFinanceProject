@@ -1,6 +1,6 @@
 import React from "react";
 
-const SavingsInvestments = (props) => {
+const SavingsInvestments = ({ arrayOfSavings }) => {
     return (
         <div>
             <h2>Your Saving Matters</h2>
