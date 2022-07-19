@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import UpdateBudgets from "./UpdateBudgets";
 
-const BudgetMapper = ({ budgetsArray, income }) => {
+const BudgetMapper = ({ budgetsArray, income, axiosUpdateBudget }) => {
     const [updateBool, setUpdateBool] = useState(false);
     return (
         <div>
             {updateBool ? (
-                <UpdateBudgets budgetsArray={budgetsArray} income={income} />
+                <UpdateBudgets
+                    budgetsArray={budgetsArray}
+                    income={income}
+                    axiosUpdateBudget={axiosUpdateBudget}
+                    setUpdateBool={setUpdateBool}
+                />
             ) : (
                 <table>
                     <thead>

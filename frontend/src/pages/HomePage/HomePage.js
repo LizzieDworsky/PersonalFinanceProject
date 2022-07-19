@@ -99,10 +99,10 @@ const HomePage = () => {
         }
     }
 
-    async function createBudget(arrayOfStuff) {
+    async function createBudget(arrayForCreate) {
         axios
             .all(
-                arrayOfStuff.map((element) =>
+                arrayForCreate.map((element) =>
                     axios.post(
                         "http://127.0.0.1:8000/api/budgets/" + element[0],
                         element[1],
@@ -120,6 +120,28 @@ const HomePage = () => {
             });
     }
 
+    async function axiosUpdateBudget(arrayforUpdate, setUpdateBool) {
+        axios
+            .all(
+                arrayforUpdate.map((element) =>
+                    axios.put(
+                        "http://127.0.0.1:8000/api/budgets/" + element[0],
+                        element[1],
+                        {
+                            headers: {
+                                Authorization: "Bearer " + token,
+                            },
+                        }
+                    )
+                )
+            )
+            .then((data) => {
+                console.log(data);
+                setRerender(!rerender);
+                setUpdateBool(false);
+            });
+    }
+
     return (
         <div>
             {income ? (
@@ -133,6 +155,7 @@ const HomePage = () => {
                     categoriesArray={categories}
                     income={income}
                     createBudget={createBudget}
+                    axiosUpdateBudget={axiosUpdateBudget}
                 />
             ) : null}
             {income ? <h1>Debt Here</h1> : null}

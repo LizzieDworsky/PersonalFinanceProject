@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 
-const UpdateBudget = ({ budgetsArray, income }) => {
+const UpdateBudget = ({
+    budgetsArray,
+    income,
+    axiosUpdateBudget,
+    setUpdateBool,
+}) => {
     const [firstBudgetLine, setFirstBudgetLine] = useState(
         budgetsArray[0].dollar_amount
     );
@@ -35,7 +40,7 @@ const UpdateBudget = ({ budgetsArray, income }) => {
         budgetsArray[10].dollar_amount
     );
 
-    async function handleUserBudgetUlabeldate(event) {
+    async function handleUserBudgetUpdate(event) {
         event.preventDefault();
         let firstMultNumber = parseInt(firstBudgetLine) / income.monthly;
         let firstPercent = firstMultNumber * 100;
@@ -72,56 +77,90 @@ const UpdateBudget = ({ budgetsArray, income }) => {
         eleventhPercent = eleventhPercent.toFixed();
 
         let budgetUpdateArray = [
-            {
-                dollar_amount: firstBudgetLine,
-                personal_percent: firstPercent,
-            },
-            {
-                dollar_amount: secondBudgetLine,
-                personal_percent: secondPercent,
-            },
-            {
-                dollar_amount: thirdBudgetLine,
-                personal_percent: thirdPercent,
-            },
-            {
-                dollar_amount: fourthBudgetLine,
-                personal_percent: fourthPercent,
-            },
-            {
-                dollar_amount: fifthBudgetLine,
-                personal_percent: fifthPercent,
-            },
-            {
-                dollar_amount: sixthBudgetLine,
-                personal_percent: sixthPercent,
-            },
-            {
-                dollar_amount: seventhBudgetLine,
-                personal_percent: seventhPercent,
-            },
-            {
-                dollar_amount: eighthBudgetLine,
-                personal_percent: eighthPercent,
-            },
-            {
-                dollar_amount: ninthBudgetLine,
-                personal_percent: ninthPercent,
-            },
-            {
-                dollar_amount: tenthBudgetLine,
-                personal_percent: tenthPercent,
-            },
-            {
-                dollar_amount: eleventhBudgetLine,
-                personal_percent: eleventhPercent,
-            },
+            [
+                budgetsArray[0].category_id,
+                {
+                    dollar_amount: firstBudgetLine,
+                    personal_percent: firstPercent,
+                },
+            ],
+            [
+                budgetsArray[1].category_id,
+                {
+                    dollar_amount: secondBudgetLine,
+                    personal_percent: secondPercent,
+                },
+            ],
+            [
+                budgetsArray[2].category_id,
+                {
+                    dollar_amount: thirdBudgetLine,
+                    personal_percent: thirdPercent,
+                },
+            ],
+            [
+                budgetsArray[3].category_id,
+                {
+                    dollar_amount: fourthBudgetLine,
+                    personal_percent: fourthPercent,
+                },
+            ],
+            [
+                budgetsArray[4].category_id,
+                {
+                    dollar_amount: fifthBudgetLine,
+                    personal_percent: fifthPercent,
+                },
+            ],
+            [
+                budgetsArray[5].category_id,
+                {
+                    dollar_amount: sixthBudgetLine,
+                    personal_percent: sixthPercent,
+                },
+            ],
+            [
+                budgetsArray[6].category_id,
+                {
+                    dollar_amount: seventhBudgetLine,
+                    personal_percent: seventhPercent,
+                },
+            ],
+            [
+                budgetsArray[7].category_id,
+                {
+                    dollar_amount: eighthBudgetLine,
+                    personal_percent: eighthPercent,
+                },
+            ],
+            [
+                budgetsArray[8].category_id,
+                {
+                    dollar_amount: ninthBudgetLine,
+                    personal_percent: ninthPercent,
+                },
+            ],
+            [
+                budgetsArray[9].category_id,
+                {
+                    dollar_amount: tenthBudgetLine,
+                    personal_percent: tenthPercent,
+                },
+            ],
+            [
+                budgetsArray[10].category_id,
+                {
+                    dollar_amount: eleventhBudgetLine,
+                    personal_percent: eleventhPercent,
+                },
+            ],
         ];
         console.log(budgetUpdateArray);
+        axiosUpdateBudget(budgetUpdateArray, setUpdateBool);
     }
 
     return (
-        <form onSubmit={(event) => handleUserBudgetUlabeldate(event)}>
+        <form onSubmit={(event) => handleUserBudgetUpdate(event)}>
             <label>{budgetsArray[0].category.name}</label>
             <input
                 tylabele="text"
