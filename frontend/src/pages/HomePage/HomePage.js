@@ -228,6 +228,22 @@ const HomePage = () => {
             console.log(error.response.data);
         }
     }
+    async function axiosUpdateSavings(arrayForUpdate) {
+        try {
+            let response = await axios.put(
+                "http://127.0.0.1:8000/api/savinginvest/" + arrayForUpdate[0],
+                arrayForUpdate[1],
+                {
+                    headers: {
+                        Authorization: "Bearer " + token,
+                    },
+                }
+            );
+            window.location.reload();
+        } catch (error) {
+            console.log(error.response.data);
+        }
+    }
 
     return (
         <div>
