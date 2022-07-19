@@ -212,6 +212,23 @@ const HomePage = () => {
         }
     }
 
+    async function axiosUpdateDebt(arrayForUpdate) {
+        try {
+            let response = await axios.put(
+                "http://127.0.0.1:8000/api/debts/" + arrayForUpdate[0],
+                arrayForUpdate[1],
+                {
+                    headers: {
+                        Authorization: "Bearer " + token,
+                    },
+                }
+            );
+            window.location.reload();
+        } catch (error) {
+            console.log(error.response.data);
+        }
+    }
+
     return (
         <div>
             {income ? (
@@ -229,7 +246,11 @@ const HomePage = () => {
                 />
             ) : null}
             {income ? (
-                <Debt arrayOfDebts={debt} createNewDebt={createNewDebt} />
+                <Debt
+                    arrayOfDebts={debt}
+                    createNewDebt={createNewDebt}
+                    axiosUpdateDebt={axiosUpdateDebt}
+                />
             ) : null}
             {income ? (
                 <SavingsInvestments
