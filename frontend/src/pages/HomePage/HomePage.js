@@ -191,7 +191,8 @@ const HomePage = () => {
                     },
                 }
             );
-            console.log(response.data);
+            setNewDebt(response.data);
+            console.log(newDebt);
             getDebt();
         } catch (error) {
             console.log(error.response.data);
@@ -215,7 +216,10 @@ const HomePage = () => {
                 />
             ) : null}
             {income ? (
-                <Debt arrayOfDebts={debt} createNewDebt={createNewDebt} />
+                <Debt
+                    arrayOfDebts={debt}
+                    axiosCreateNewBudget={createNewDebt}
+                />
             ) : null}
             {income ? <SavingsInvestments arrayOfSavings={savings} /> : null}
             {income ? <NetWorth /> : null}
