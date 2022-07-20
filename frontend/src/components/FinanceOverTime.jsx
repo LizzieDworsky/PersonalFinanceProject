@@ -1,19 +1,27 @@
 import React from "react";
 import { Chart } from "react-google-charts";
 
-const FinanceOverTime = (props) => {
+const FinanceOverTime = ({ budgetsArray, savingsArray, debtArray }) => {
     const data = [
-        ["Year", "Sales", "Expenses"],
-        ["2004", 1000, 400],
-        ["2005", 1170, 460],
-        ["2006", 660, 1120],
-        ["2007", 1030, 540],
+        ["Month", "Budget Total", "Total Savings and Invested", "Total Debt"],
+        ["April", 1000, 400, 500],
+        ["May", 1170, 460, 300],
+        ["June", 660, 1120, 600],
+        ["July", 1030, 540, 300],
     ];
 
     const options = {
         title: "Company Performance",
         curveType: "function",
         legend: { position: "bottom" },
+        backgroundColor: "#ffffff",
+        colors: ["orange", "FFFF00"],
+        vAxis: {
+            format: "currency",
+            gridlines: {
+                color: "grey",
+            },
+        },
     };
 
     return (

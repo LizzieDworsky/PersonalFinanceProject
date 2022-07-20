@@ -278,7 +278,13 @@ const HomePage = () => {
             {income ? (
                 <NetWorth savingsInvestmentArray={savings} debtArray={debt} />
             ) : null}
-            {income ? <FinanceOverTime /> : null}
+            {income ? (
+                <FinanceOverTime
+                    budgetsArray={budgets}
+                    savingsArray={savings}
+                    debtArray={debt}
+                />
+            ) : null}
         </div>
     );
 };
