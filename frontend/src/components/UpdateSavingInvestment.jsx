@@ -19,7 +19,7 @@ const UpdateSavingInvestment = ({ savingToEdit, axiosUpdateSavings }) => {
             date: savingInvestDate,
         };
         let arrayForUpdate = [savingToEdit.id, tempSaving];
-        console.log(arrayForUpdate);
+        axiosUpdateSavings(arrayForUpdate);
     }
 
     return (
