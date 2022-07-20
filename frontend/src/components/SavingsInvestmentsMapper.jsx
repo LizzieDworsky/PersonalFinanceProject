@@ -1,7 +1,12 @@
 import React, { useState } from "react";
+import UpdateSavingInvestment from "./UpdateSavingInvestment";
 
 const SavingsInvestmentsMapper = ({ arrayOfSavings, axiosUpdateSavings }) => {
     const [savingsToEdit, setSavingsToEdit] = useState();
+
+    function captureItem(item) {
+        setSavingsToEdit(item);
+    }
 
     return (
         <div>
@@ -25,13 +30,20 @@ const SavingsInvestmentsMapper = ({ arrayOfSavings, axiosUpdateSavings }) => {
                                         : "Saving"}
                                 </td>
                                 <td>{item.total}</td>
-                                <td>Update</td>
+                                <td onClick={(event) => captureItem(item)}>
+                                    Update
+                                </td>
                             </tr>
                         );
                     })}
                 </tbody>
             </table>
-            {}
+            {savingsToEdit ? (
+                <UpdateSavingInvestment
+                    savingToEdit={savingsToEdit}
+                    axiosUpdateSavings={axiosUpdateSavings}
+                />
+            ) : null}
         </div>
     );
 };
