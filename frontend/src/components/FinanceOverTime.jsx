@@ -2,6 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Chart } from "react-google-charts";
 
 const FinanceOverTime = ({ budgetsArray, savingsArray, debtArray }) => {
+    const [arrayForChart, setArrayForChart] = useState([]);
+
+    useEffect(() => {
+        getDates();
+    }, []);
+
     const currentYear = new Date().getFullYear();
     const monthStrArray = [
         "January",
@@ -23,7 +29,7 @@ const FinanceOverTime = ({ budgetsArray, savingsArray, debtArray }) => {
         ["April", 1000, 400, 500],
         ["May", 1170, 460, 300],
         ["June", 660, 1120, 600],
-        ["July", 1030, 540, 300],
+        ...arrayForChart,
     ];
 
     const options = {
@@ -51,7 +57,6 @@ const FinanceOverTime = ({ budgetsArray, savingsArray, debtArray }) => {
             }
         });
         uniqueBudgetMonths = [...new Set(uniqueBudgetMonths)];
-        console.log(uniqueBudgetMonths);
         let newBudgetsArray = budgetsArray.map((item) => {
             let dateStr = item.date;
             let [year, month, day] = dateStr.split("-");
@@ -62,20 +67,17 @@ const FinanceOverTime = ({ budgetsArray, savingsArray, debtArray }) => {
                 return itemMonthArray;
             }
         });
-        console.log(newBudgetsArray);
-        let indexforUniqueBudgetMonths = uniqueBudgetMonths.length - 1;
-        console.log(indexforUniqueBudgetMonths);
-        let arrayTotals = uniqueBudgetMonths.forEach((element) => {
+        let tempArrayTotals = [];
+        uniqueBudgetMonths.forEach((element) => {
             let currentMonthBudgetTotal = 0;
             newBudgetsArray.map((item) => {
                 if (item[0] === element) {
                     currentMonthBudgetTotal += item[1];
                 }
             });
-            console.log(element, currentMonthBudgetTotal);
-            return [element, currentMonthBudgetTotal, 0, 0];
+            tempArrayTotals.push([element, currentMonthBudgetTotal, 0, 0]);
         });
-        console.log(arrayTotals);
+        setArrayForChart(tempArrayTotals);
     }
 
     return (
@@ -88,7 +90,6 @@ const FinanceOverTime = ({ budgetsArray, savingsArray, debtArray }) => {
                 data={data}
                 options={options}
             />
-            {getDates()}
         </div>
     );
 };
