@@ -6,7 +6,7 @@ const FinanceOverTime = ({ budgetsArray, savingsArray, debtArray }) => {
 
     useEffect(() => {
         getDates();
-    }, []);
+    }, [budgetsArray]);
 
     const currentYear = new Date().getFullYear();
     const monthStrArray = [
@@ -26,9 +26,6 @@ const FinanceOverTime = ({ budgetsArray, savingsArray, debtArray }) => {
 
     const data = [
         ["Month", "Budget Total", "Total Savings and Invested", "Total Debt"],
-        ["April", 1000, 400, 500],
-        ["May", 1170, 460, 300],
-        ["June", 660, 1120, 600],
         ...arrayForChart,
     ];
 
@@ -67,6 +64,17 @@ const FinanceOverTime = ({ budgetsArray, savingsArray, debtArray }) => {
                 return itemMonthArray;
             }
         });
+        let newSavingsArray = savingsArray.map((item) => {
+            let dateStr = item.date;
+            let [year, month, day] = dateStr.split("-");
+            if (year == currentYear) {
+                month = parseInt(month);
+                let itemMonth = monthStrArray[month - 1];
+                let itemMonthArray = [itemMonth, parseInt(item.total)];
+                return itemMonthArray;
+            }
+        });
+        console.log(newSavingsArray);
         let tempArrayTotals = [];
         uniqueBudgetMonths.forEach((element) => {
             let currentMonthBudgetTotal = 0;
@@ -75,7 +83,19 @@ const FinanceOverTime = ({ budgetsArray, savingsArray, debtArray }) => {
                     currentMonthBudgetTotal += item[1];
                 }
             });
-            tempArrayTotals.push([element, currentMonthBudgetTotal, 0, 0]);
+            let currentMonthSavingsTotal = 0;
+            newSavingsArray.map((item) => {
+                if (item[0] === element) {
+                    currentMonthSavingsTotal += item[1];
+                }
+            });
+            console.log(currentMonthSavingsTotal);
+            tempArrayTotals.push([
+                element,
+                currentMonthBudgetTotal,
+                currentMonthSavingsTotal,
+                0,
+            ]);
         });
         setArrayForChart(tempArrayTotals);
     }
