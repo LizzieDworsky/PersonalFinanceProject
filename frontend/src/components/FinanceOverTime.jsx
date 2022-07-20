@@ -65,6 +65,17 @@ const FinanceOverTime = ({ budgetsArray, savingsArray, debtArray }) => {
         console.log(newBudgetsArray);
         let indexforUniqueBudgetMonths = uniqueBudgetMonths.length - 1;
         console.log(indexforUniqueBudgetMonths);
+        let arrayTotals = uniqueBudgetMonths.forEach((element) => {
+            let currentMonthBudgetTotal = 0;
+            newBudgetsArray.map((item) => {
+                if (item[0] === element) {
+                    currentMonthBudgetTotal += item[1];
+                }
+            });
+            console.log(element, currentMonthBudgetTotal);
+            return [element, currentMonthBudgetTotal, 0, 0];
+        });
+        console.log(arrayTotals);
     }
 
     return (
