@@ -42,6 +42,9 @@ const UpdateBudget = ({
     const [eleventhBudgetLine, setEleventhBudgetLine] = useState(
         budgetsArray[10].dollar_amount
     );
+    const [twelfthBudgetLine, setTwelfthBudgetLine] = useState(
+        budgetsArray[11].dollar_amount
+    );
 
     async function handleUserBudgetUpdate(event) {
         event.preventDefault();
@@ -78,6 +81,9 @@ const UpdateBudget = ({
         let eleventhMultNumber = parseInt(eleventhBudgetLine) / income.monthly;
         let eleventhPercent = eleventhMultNumber * 100;
         eleventhPercent = eleventhPercent.toFixed();
+        let twelfthMultNumber = parseInt(twelfthBudgetLine) / income.monthly;
+        let twelfthPercent = twelfthMultNumber * 100;
+        twelfthPercent = twelfthPercent.toFixed();
 
         let budgetUpdateArray = [
             [
@@ -168,6 +174,14 @@ const UpdateBudget = ({
                     date: updateBudgetDate,
                 },
             ],
+            [
+                budgetsArray[11].category_id,
+                {
+                    dollar_amount: twelfthBudgetLine,
+                    personal_percent: twelfthPercent,
+                    date: updateBudgetDate,
+                },
+            ],
         ];
         console.log(budgetUpdateArray);
         axiosUpdateBudget(budgetUpdateArray, setUpdateBool);
@@ -246,6 +260,12 @@ const UpdateBudget = ({
                 tylabele="text"
                 value={eleventhBudgetLine}
                 onChange={(event) => setEleventhBudgetLine(event.target.value)}
+            />
+            <label>{budgetsArray[11].category.name}</label>
+            <input
+                tylabele="text"
+                value={twelfthBudgetLine}
+                onChange={(event) => setTwelfthBudgetLine(event.target.value)}
             />
             <button>Update</button>
         </form>
