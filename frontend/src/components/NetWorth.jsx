@@ -17,7 +17,6 @@ const NetWorth = ({ savingsInvestmentArray, debtArray }) => {
             liabilitiesTotal += parseInt(item.total_owed);
         });
         let tempNetWorth = assetTotal - liabilitiesTotal;
-        console.log(tempNetWorth);
         setNetWorth(tempNetWorth);
     }
 
