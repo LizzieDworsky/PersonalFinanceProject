@@ -272,6 +272,7 @@ const HomePage = () => {
                 <SavingsInvestments
                     arrayOfSavings={savings}
                     axiosCreateSavings={createNewSavingInvest}
+                    axiosUpdateSavings={axiosUpdateSavings}
                 />
             ) : null}
             {income ? <NetWorth /> : null}
