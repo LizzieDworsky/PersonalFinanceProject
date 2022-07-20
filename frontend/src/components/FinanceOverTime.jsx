@@ -1,7 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Chart } from "react-google-charts";
 
 const FinanceOverTime = ({ budgetsArray, savingsArray, debtArray }) => {
+    const currentYear = new Date().getFullYear();
+    const monthStrArray = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+    ];
+
     const data = [
         ["Month", "Budget Total", "Total Savings and Invested", "Total Debt"],
         ["April", 1000, 400, 500],
@@ -24,6 +40,33 @@ const FinanceOverTime = ({ budgetsArray, savingsArray, debtArray }) => {
         },
     };
 
+    function getDates() {
+        let uniqueBudgetMonths = budgetsArray.map((item) => {
+            let dateStr = item.date;
+            let [year, month, day] = dateStr.split("-");
+            if (year == currentYear) {
+                month = parseInt(month);
+                let itemMonth = monthStrArray[month - 1];
+                return itemMonth;
+            }
+        });
+        uniqueBudgetMonths = [...new Set(uniqueBudgetMonths)];
+        console.log(uniqueBudgetMonths);
+        let newBudgetsArray = budgetsArray.map((item) => {
+            let dateStr = item.date;
+            let [year, month, day] = dateStr.split("-");
+            if (year == currentYear) {
+                month = parseInt(month);
+                let itemMonth = monthStrArray[month - 1];
+                let itemMonthArray = [itemMonth, parseInt(item.dollar_amount)];
+                return itemMonthArray;
+            }
+        });
+        console.log(newBudgetsArray);
+        let indexforUniqueBudgetMonths = uniqueBudgetMonths.length - 1;
+        console.log(indexforUniqueBudgetMonths);
+    }
+
     return (
         <div>
             <h2>Your Finances Over Time</h2>
@@ -34,6 +77,7 @@ const FinanceOverTime = ({ budgetsArray, savingsArray, debtArray }) => {
                 data={data}
                 options={options}
             />
+            {getDates()}
         </div>
     );
 };
