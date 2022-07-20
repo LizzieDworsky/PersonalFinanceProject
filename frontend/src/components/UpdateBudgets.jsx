@@ -6,6 +6,9 @@ const UpdateBudget = ({
     axiosUpdateBudget,
     setUpdateBool,
 }) => {
+    const [updateBudgetDate, setUpdateBudgetDate] = useState(
+        budgetsArray[0].date
+    );
     const [firstBudgetLine, setFirstBudgetLine] = useState(
         budgetsArray[0].dollar_amount
     );
@@ -82,6 +85,7 @@ const UpdateBudget = ({
                 {
                     dollar_amount: firstBudgetLine,
                     personal_percent: firstPercent,
+                    date: updateBudgetDate,
                 },
             ],
             [
@@ -89,6 +93,7 @@ const UpdateBudget = ({
                 {
                     dollar_amount: secondBudgetLine,
                     personal_percent: secondPercent,
+                    date: updateBudgetDate,
                 },
             ],
             [
@@ -96,6 +101,7 @@ const UpdateBudget = ({
                 {
                     dollar_amount: thirdBudgetLine,
                     personal_percent: thirdPercent,
+                    date: updateBudgetDate,
                 },
             ],
             [
@@ -103,6 +109,7 @@ const UpdateBudget = ({
                 {
                     dollar_amount: fourthBudgetLine,
                     personal_percent: fourthPercent,
+                    date: updateBudgetDate,
                 },
             ],
             [
@@ -110,6 +117,7 @@ const UpdateBudget = ({
                 {
                     dollar_amount: fifthBudgetLine,
                     personal_percent: fifthPercent,
+                    date: updateBudgetDate,
                 },
             ],
             [
@@ -117,6 +125,7 @@ const UpdateBudget = ({
                 {
                     dollar_amount: sixthBudgetLine,
                     personal_percent: sixthPercent,
+                    date: updateBudgetDate,
                 },
             ],
             [
@@ -124,6 +133,7 @@ const UpdateBudget = ({
                 {
                     dollar_amount: seventhBudgetLine,
                     personal_percent: seventhPercent,
+                    date: updateBudgetDate,
                 },
             ],
             [
@@ -131,6 +141,7 @@ const UpdateBudget = ({
                 {
                     dollar_amount: eighthBudgetLine,
                     personal_percent: eighthPercent,
+                    date: updateBudgetDate,
                 },
             ],
             [
@@ -138,6 +149,7 @@ const UpdateBudget = ({
                 {
                     dollar_amount: ninthBudgetLine,
                     personal_percent: ninthPercent,
+                    date: updateBudgetDate,
                 },
             ],
             [
@@ -145,6 +157,7 @@ const UpdateBudget = ({
                 {
                     dollar_amount: tenthBudgetLine,
                     personal_percent: tenthPercent,
+                    date: updateBudgetDate,
                 },
             ],
             [
@@ -152,6 +165,7 @@ const UpdateBudget = ({
                 {
                     dollar_amount: eleventhBudgetLine,
                     personal_percent: eleventhPercent,
+                    date: updateBudgetDate,
                 },
             ],
         ];
@@ -161,6 +175,12 @@ const UpdateBudget = ({
 
     return (
         <form onSubmit={(event) => handleUserBudgetUpdate(event)}>
+            <label>Today's Date</label>
+            <input
+                type="date"
+                value={updateBudgetDate}
+                onChange={(event) => setUpdateBudgetDate(event.target.value)}
+            />
             <label>{budgetsArray[0].category.name}</label>
             <input
                 tylabele="text"
