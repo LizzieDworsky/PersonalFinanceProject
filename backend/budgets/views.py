@@ -26,15 +26,15 @@ def get_user_budgets(request):
 @api_view(["POST", "PUT"])
 @permission_classes([IsAuthenticated])
 def change_user_budgets(request, pk):
-    budget_category = get_object_or_404(Category, pk=pk)
     if request.method == "POST":
+        budget_category = get_object_or_404(Category, pk=pk)
         serializer = BudgetSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save(user=request.user, category=budget_category)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     elif request.method == "PUT":
-        budget_line = get_object_or_404(Budget, user_id=request.user.id, category_id=pk)
+        budget_line = get_object_or_404(Budget, pk=pk)
         serializer = BudgetSerializer(budget_line, data=request.data)
         if serializer.is_valid():
             serializer.save()

@@ -87,7 +87,7 @@ const UpdateBudget = ({
 
         let budgetUpdateArray = [
             [
-                budgetsArray[0].category_id,
+                budgetsArray[0].id,
                 {
                     dollar_amount: firstBudgetLine,
                     personal_percent: firstPercent,
@@ -95,7 +95,7 @@ const UpdateBudget = ({
                 },
             ],
             [
-                budgetsArray[1].category_id,
+                budgetsArray[1].id,
                 {
                     dollar_amount: secondBudgetLine,
                     personal_percent: secondPercent,
@@ -103,7 +103,7 @@ const UpdateBudget = ({
                 },
             ],
             [
-                budgetsArray[2].category_id,
+                budgetsArray[2].id,
                 {
                     dollar_amount: thirdBudgetLine,
                     personal_percent: thirdPercent,
@@ -111,7 +111,7 @@ const UpdateBudget = ({
                 },
             ],
             [
-                budgetsArray[3].category_id,
+                budgetsArray[3].id,
                 {
                     dollar_amount: fourthBudgetLine,
                     personal_percent: fourthPercent,
@@ -119,7 +119,7 @@ const UpdateBudget = ({
                 },
             ],
             [
-                budgetsArray[4].category_id,
+                budgetsArray[4].id,
                 {
                     dollar_amount: fifthBudgetLine,
                     personal_percent: fifthPercent,
@@ -127,7 +127,7 @@ const UpdateBudget = ({
                 },
             ],
             [
-                budgetsArray[5].category_id,
+                budgetsArray[5].id,
                 {
                     dollar_amount: sixthBudgetLine,
                     personal_percent: sixthPercent,
@@ -135,7 +135,7 @@ const UpdateBudget = ({
                 },
             ],
             [
-                budgetsArray[6].category_id,
+                budgetsArray[6].id,
                 {
                     dollar_amount: seventhBudgetLine,
                     personal_percent: seventhPercent,
@@ -143,7 +143,7 @@ const UpdateBudget = ({
                 },
             ],
             [
-                budgetsArray[7].category_id,
+                budgetsArray[7].id,
                 {
                     dollar_amount: eighthBudgetLine,
                     personal_percent: eighthPercent,
@@ -151,7 +151,7 @@ const UpdateBudget = ({
                 },
             ],
             [
-                budgetsArray[8].category_id,
+                budgetsArray[8].id,
                 {
                     dollar_amount: ninthBudgetLine,
                     personal_percent: ninthPercent,
@@ -159,7 +159,7 @@ const UpdateBudget = ({
                 },
             ],
             [
-                budgetsArray[9].category_id,
+                budgetsArray[9].id,
                 {
                     dollar_amount: tenthBudgetLine,
                     personal_percent: tenthPercent,
@@ -167,7 +167,7 @@ const UpdateBudget = ({
                 },
             ],
             [
-                budgetsArray[10].category_id,
+                budgetsArray[10].id,
                 {
                     dollar_amount: eleventhBudgetLine,
                     personal_percent: eleventhPercent,
@@ -175,7 +175,7 @@ const UpdateBudget = ({
                 },
             ],
             [
-                budgetsArray[11].category_id,
+                budgetsArray[11].id,
                 {
                     dollar_amount: twelfthBudgetLine,
                     personal_percent: twelfthPercent,
