@@ -20,12 +20,12 @@ li {
     background: transparent;
     border: 2px solid #fffbce;
     color: #fffbce;
-    padding: 0.4rem 0.5rem;
+    box-shadow: 2px 2px 5px black;
 }
 
 .navBar button:hover {
     background: #fffbce;
-    color: #00525a;
+    color: #025928;
     cursor: pointer;
 }
 

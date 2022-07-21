@@ -13,7 +13,7 @@ const Navbar = () => {
                 <li className="brand">
                     <Link
                         to="/"
-                        style={{ textDecoration: "none", color: "white" }}
+                        style={{ textDecoration: "none", color: "#fffbce" }}
                     >
                         <b>Your Money Matters</b>
                     </Link>
