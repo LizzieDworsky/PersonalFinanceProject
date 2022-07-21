@@ -109,6 +109,7 @@ const HomePage = () => {
                 }
             );
             setBudgets(response.data);
+            filterBudgetsForCurrentMonthOnly();
         } catch (error) {
             console.log(error.response.data);
         }
@@ -264,7 +265,16 @@ const HomePage = () => {
     }
 
     async function filterBudgetsForCurrentMonthOnly() {
-        //filter through the full budgets array and retrieve only the ones from current month
+        let tempCurrentMonth = [];
+        budgets.map((item) => {
+            let dateStr = item.date;
+            let [year, month, day] = dateStr.split("-");
+            month = parseInt(month - 1);
+            if (year == currentYear && month === currentMonth) {
+                tempCurrentMonth.push(item);
+            }
+        });
+        setCurrentMonthBudget(tempCurrentMonth);
     }
 
     return (
@@ -276,7 +286,7 @@ const HomePage = () => {
             )}
             {income ? (
                 <Budget
-                    budgetsArray={budgets}
+                    budgetsArray={currentMonthBudget}
                     categoriesArray={categories}
                     income={income}
                     createBudget={createBudget}

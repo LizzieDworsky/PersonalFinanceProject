@@ -66,6 +66,8 @@ const FinanceOverTime = ({
             ...allDebtMonthsForCurrentYear,
             ...allSavingsMonthsForCurrentYear,
         ];
+        //refactor so date strings are found after uniqueMonths array is created.
+        //should keep the months in chronological order
         let uniqueMonths = [...new Set(allMonthsCurrentYear)];
         let newBudgetsArray = budgetsArray.map((item) => {
             let dateStr = item.date;
