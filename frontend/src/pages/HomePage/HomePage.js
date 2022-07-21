@@ -15,10 +15,28 @@ const HomePage = () => {
     const [user, token] = useAuth();
     const [income, setIncome] = useState();
     const [budgets, setBudgets] = useState([]);
+    const [currentMonthBudget, setCurrentMonthBudget] = useState([]);
     const [categories, setCategories] = useState([]);
     const [rerender, setRerender] = useState(false);
     const [debt, setDebt] = useState([]);
     const [savings, setSavings] = useState([]);
+
+    const currentYear = new Date().getFullYear();
+    const currentMonth = new Date().getMonth();
+    const monthStrArray = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+    ];
 
     useEffect(() => {
         getIncome();
@@ -245,6 +263,10 @@ const HomePage = () => {
         }
     }
 
+    async function filterBudgetsForCurrentMonthOnly() {
+        //filter through the full budgets array and retrieve only the ones from current month
+    }
+
     return (
         <div>
             {income ? (
@@ -283,6 +305,8 @@ const HomePage = () => {
                     budgetsArray={budgets}
                     savingsArray={savings}
                     debtArray={debt}
+                    currentYear={currentYear}
+                    monthStrArray={monthStrArray}
                 />
             ) : null}
         </div>

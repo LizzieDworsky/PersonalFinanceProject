@@ -1,28 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Chart } from "react-google-charts";
 
-const FinanceOverTime = ({ budgetsArray, savingsArray, debtArray }) => {
+const FinanceOverTime = ({
+    budgetsArray,
+    savingsArray,
+    debtArray,
+    currentYear,
+    monthStrArray,
+}) => {
     const [arrayForChart, setArrayForChart] = useState([]);
 
     useEffect(() => {
         getDates();
     }, [budgetsArray, savingsArray, debtArray]);
-
-    const currentYear = new Date().getFullYear();
-    const monthStrArray = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December",
-    ];
 
     const data = [
         ["Month", "Budget Total", "Total Savings and Invested", "Total Debt"],
