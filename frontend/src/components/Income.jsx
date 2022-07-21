@@ -14,22 +14,25 @@ const Income = ({ state, updateIncome }) => {
     }
 
     return (
-        <div>
+        <div className="income-comp-container">
             <h2>Your Income Matters</h2>
-            <p>Yearly: {state.yearly}</p>
-            <p>Monthly: {state.monthly}</p>
+            <p className="income-script">Yearly: {state.yearly}</p>
+            <p className="income-script">Monthly: {state.monthly}</p>
             <form onSubmit={(event) => handleUpdate(event)}>
                 <input
+                    className="update-income-input"
                     type="text"
                     value={yearly}
                     onChange={(event) => setYearly(event.target.value)}
                 />
                 <input
+                    className="update-income-input"
                     type="text"
                     value={monthly}
                     onChange={(event) => setMonthly(event.target.value)}
                 />
-                <button>Update</button>
+                <br />
+                <button className="update-income-button">Update</button>
             </form>
         </div>
     );

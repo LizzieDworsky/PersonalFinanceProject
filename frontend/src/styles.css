@@ -25,7 +25,7 @@ html {
 }
 
 p {
-    font-size: 20px;
+    font-size: 125%;
     color: #025928;
 }
 
@@ -36,10 +36,12 @@ div {
 h2 {
     color: #025928;
     text-shadow: 1px 1px 2px black;
+    font-size: 200%;
 }
 
 h3 {
     color: #025928;
+    font-size: 150%;
 }
 
 th {
@@ -133,4 +135,24 @@ input[type="checkbox"]:checked {
 
 .link-to-register:hover {
     font-weight: 900;
+}
+
+.update-income-input {
+    max-width: 130px;
+    margin: 5px 25px;
+}
+
+.income-script {
+    display: inline;
+    margin: 15px;
+}
+
+.update-income-button {
+    font-size: 70%;
+    padding: 4px 10px;
+}
+
+.income-comp-container {
+    margin-top: 5em;
+    margin-bottom: 3em;
 }

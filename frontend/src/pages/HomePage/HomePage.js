@@ -313,7 +313,7 @@ const HomePage = () => {
     }
 
     return (
-        <div>
+        <div className="container-for-whole-app">
             {income ? (
                 <Income state={income} updateIncome={updateIncome} />
             ) : (
