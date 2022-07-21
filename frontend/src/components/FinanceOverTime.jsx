@@ -64,6 +64,7 @@ const FinanceOverTime = ({
             ...allSavingsMonthsForCurrentYear,
         ];
         let uniqueMonthsNumber = [...new Set(allMonthsCurrentYear)];
+        uniqueMonthsNumber.sort((a, b) => a - b);
         let uniqueMonthsStr = uniqueMonthsNumber.map((item) => {
             return monthStrArray[item - 1];
         });
