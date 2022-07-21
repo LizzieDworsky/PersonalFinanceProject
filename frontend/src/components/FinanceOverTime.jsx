@@ -6,7 +6,7 @@ const FinanceOverTime = ({ budgetsArray, savingsArray, debtArray }) => {
 
     useEffect(() => {
         getDates();
-    }, [budgetsArray]);
+    }, [budgetsArray, savingsArray, debtArray]);
 
     const currentYear = new Date().getFullYear();
     const monthStrArray = [
@@ -34,7 +34,7 @@ const FinanceOverTime = ({ budgetsArray, savingsArray, debtArray }) => {
         curveType: "function",
         legend: { position: "bottom" },
         backgroundColor: "#ffffff",
-        colors: ["orange", "FFFF00"],
+        colors: ["orange", "000080", "green"],
         vAxis: {
             format: "currency",
             gridlines: {
@@ -44,7 +44,7 @@ const FinanceOverTime = ({ budgetsArray, savingsArray, debtArray }) => {
     };
 
     function getDates() {
-        let uniqueBudgetMonths = budgetsArray.map((item) => {
+        let allBudgetMonthsForCurrentYear = budgetsArray.map((item) => {
             let dateStr = item.date;
             let [year, month, day] = dateStr.split("-");
             if (year == currentYear) {
@@ -53,7 +53,30 @@ const FinanceOverTime = ({ budgetsArray, savingsArray, debtArray }) => {
                 return itemMonth;
             }
         });
-        uniqueBudgetMonths = [...new Set(uniqueBudgetMonths)];
+        let allSavingsMonthsForCurrentYear = savingsArray.map((item) => {
+            let dateStr = item.date;
+            let [year, month, day] = dateStr.split("-");
+            if (year == currentYear) {
+                month = parseInt(month);
+                let itemMonth = monthStrArray[month - 1];
+                return itemMonth;
+            }
+        });
+        let allDebtMonthsForCurrentYear = debtArray.map((item) => {
+            let dateStr = item.date;
+            let [year, month, day] = dateStr.split("-");
+            if (year == currentYear) {
+                month = parseInt(month);
+                let itemMonth = monthStrArray[month - 1];
+                return itemMonth;
+            }
+        });
+        let allMonthsCurrentYear = [
+            ...allBudgetMonthsForCurrentYear,
+            ...allDebtMonthsForCurrentYear,
+            ...allSavingsMonthsForCurrentYear,
+        ];
+        let uniqueMonths = [...new Set(allMonthsCurrentYear)];
         let newBudgetsArray = budgetsArray.map((item) => {
             let dateStr = item.date;
             let [year, month, day] = dateStr.split("-");
@@ -74,9 +97,18 @@ const FinanceOverTime = ({ budgetsArray, savingsArray, debtArray }) => {
                 return itemMonthArray;
             }
         });
-        console.log(newSavingsArray);
+        let newDebtArray = debtArray.map((item) => {
+            let dateStr = item.date;
+            let [year, month, day] = dateStr.split("-");
+            if (year == currentYear) {
+                month = parseInt(month);
+                let itemMonth = monthStrArray[month - 1];
+                let itemMonthArray = [itemMonth, parseInt(item.total_owed)];
+                return itemMonthArray;
+            }
+        });
         let tempArrayTotals = [];
-        uniqueBudgetMonths.forEach((element) => {
+        uniqueMonths.forEach((element) => {
             let currentMonthBudgetTotal = 0;
             newBudgetsArray.map((item) => {
                 if (item[0] === element) {
@@ -89,12 +121,17 @@ const FinanceOverTime = ({ budgetsArray, savingsArray, debtArray }) => {
                     currentMonthSavingsTotal += item[1];
                 }
             });
-            console.log(currentMonthSavingsTotal);
+            let currentMonthDebtTotal = 0;
+            newDebtArray.map((item) => {
+                if (item[0] === element) {
+                    currentMonthDebtTotal -= item[1];
+                }
+            });
             tempArrayTotals.push([
                 element,
                 currentMonthBudgetTotal,
                 currentMonthSavingsTotal,
-                0,
+                currentMonthDebtTotal,
             ]);
         });
         setArrayForChart(tempArrayTotals);
