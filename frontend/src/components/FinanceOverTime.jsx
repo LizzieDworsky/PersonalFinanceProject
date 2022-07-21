@@ -39,8 +39,7 @@ const FinanceOverTime = ({
             let [year, month, day] = dateStr.split("-");
             if (year == currentYear) {
                 month = parseInt(month);
-                let itemMonth = monthStrArray[month - 1];
-                return itemMonth;
+                return month;
             }
         });
         let allSavingsMonthsForCurrentYear = savingsArray.map((item) => {
@@ -48,8 +47,7 @@ const FinanceOverTime = ({
             let [year, month, day] = dateStr.split("-");
             if (year == currentYear) {
                 month = parseInt(month);
-                let itemMonth = monthStrArray[month - 1];
-                return itemMonth;
+                return month;
             }
         });
         let allDebtMonthsForCurrentYear = debtArray.map((item) => {
@@ -57,8 +55,7 @@ const FinanceOverTime = ({
             let [year, month, day] = dateStr.split("-");
             if (year == currentYear) {
                 month = parseInt(month);
-                let itemMonth = monthStrArray[month - 1];
-                return itemMonth;
+                return month;
             }
         });
         let allMonthsCurrentYear = [
@@ -66,9 +63,10 @@ const FinanceOverTime = ({
             ...allDebtMonthsForCurrentYear,
             ...allSavingsMonthsForCurrentYear,
         ];
-        //refactor so date strings are found after uniqueMonths array is created.
-        //should keep the months in chronological order
-        let uniqueMonths = [...new Set(allMonthsCurrentYear)];
+        let uniqueMonthsNumber = [...new Set(allMonthsCurrentYear)];
+        let uniqueMonthsStr = uniqueMonthsNumber.map((item) => {
+            return monthStrArray[item - 1];
+        });
         let newBudgetsArray = budgetsArray.map((item) => {
             let dateStr = item.date;
             let [year, month, day] = dateStr.split("-");
@@ -100,7 +98,7 @@ const FinanceOverTime = ({
             }
         });
         let tempArrayTotals = [];
-        uniqueMonths.forEach((element) => {
+        uniqueMonthsStr.forEach((element) => {
             let currentMonthBudgetTotal = 0;
             newBudgetsArray.map((item) => {
                 if (item[0] === element) {
