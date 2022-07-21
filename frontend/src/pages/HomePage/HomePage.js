@@ -19,7 +19,9 @@ const HomePage = () => {
     const [categories, setCategories] = useState([]);
     const [rerender, setRerender] = useState(false);
     const [debt, setDebt] = useState([]);
+    const [currentMonthDebt, setCurrentMonthDebt] = useState([]);
     const [savings, setSavings] = useState([]);
+    const [currentMonthSaving, setCurrentMonthSaving] = useState([]);
 
     const currentYear = new Date().getFullYear();
     const currentMonth = new Date().getMonth();
@@ -45,6 +47,11 @@ const HomePage = () => {
         getDebt();
         getSavingsInvestments();
     }, [rerender]);
+
+    useEffect(() => {
+        filterBudgetsForCurrentMonthOnly();
+        filterDebtForCurrentMonthOnly();
+    }, [budgets, debt]);
 
     async function getIncome() {
         try {
@@ -177,6 +184,7 @@ const HomePage = () => {
                 },
             });
             setDebt(response.data);
+            filterDebtForCurrentMonthOnly();
         } catch (error) {
             console.log(error.response.data);
         }
@@ -277,6 +285,19 @@ const HomePage = () => {
         setCurrentMonthBudget(tempCurrentMonth);
     }
 
+    async function filterDebtForCurrentMonthOnly() {
+        let tempCurrentMonth = [];
+        debt.map((item) => {
+            let dateStr = item.date;
+            let [year, month, day] = dateStr.split("-");
+            month = parseInt(month - 1);
+            if (year == currentYear && month === currentMonth) {
+                tempCurrentMonth.push(item);
+            }
+        });
+        setCurrentMonthDebt(tempCurrentMonth);
+    }
+
     return (
         <div>
             {income ? (
@@ -295,7 +316,7 @@ const HomePage = () => {
             ) : null}
             {income ? (
                 <Debt
-                    arrayOfDebts={debt}
+                    arrayOfDebts={currentMonthDebt}
                     createNewDebt={createNewDebt}
                     axiosUpdateDebt={axiosUpdateDebt}
                 />
