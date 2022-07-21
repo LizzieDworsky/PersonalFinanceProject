@@ -20,11 +20,10 @@ const FinanceOverTime = ({
     ];
 
     const options = {
-        title: "Company Performance",
         curveType: "function",
         legend: { position: "bottom" },
-        backgroundColor: "#ffffff",
-        colors: ["orange", "000080", "green"],
+        backgroundColor: "#eaf4be",
+        colors: ["#8F9CFF", "#009AF0", "#1A8784"],
         vAxis: {
             format: "currency",
             gridlines: {

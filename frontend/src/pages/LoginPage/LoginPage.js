@@ -47,7 +47,7 @@ const LoginPage = () => {
                 <Link to="/register" className="link-to-register">
                     Click to register!
                 </Link>
-                <button className="login-page-button">Login!</button>
+                <button className="login-register-page-button">Login!</button>
             </form>
         </div>
     );

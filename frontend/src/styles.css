@@ -9,7 +9,14 @@
 }
 
 body {
-    background-color: #fffbce;
+    background-image: linear-gradient(
+        to right top,
+        #fffbce,
+        #eaf4be,
+        #d2edb2,
+        #b6e7a9,
+        #95e0a5
+    );
 }
 
 html {
@@ -19,6 +26,28 @@ html {
 
 p {
     font-size: 20px;
+    color: #025928;
+}
+
+div {
+    text-align: center;
+}
+
+h2 {
+    color: #025928;
+    text-shadow: 1px 1px 2px black;
+}
+
+h3 {
+    color: #025928;
+}
+
+th {
+    color: #025928;
+}
+
+td {
+    color: #025928;
 }
 
 button {
@@ -43,10 +72,28 @@ input {
     background-color: transparent;
     border: 2px solid #025928;
     border-radius: 5px;
+    box-shadow: 1px 1px 5px black;
 }
 
 label {
     color: #025928;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    background-color: transparent;
+    margin: 5px;
+    font: inherit;
+    color: currentColor;
+    width: 1em;
+    height: 1em;
+    border-radius: 1px;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #025928;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
 }
 
 .container {
@@ -73,7 +120,7 @@ label {
     font-size: 17px;
 }
 
-.login-page-button {
+.login-register-page-button {
     margin-bottom: 5em;
 }
 
