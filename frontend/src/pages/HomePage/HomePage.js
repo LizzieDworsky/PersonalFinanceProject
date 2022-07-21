@@ -51,7 +51,8 @@ const HomePage = () => {
     useEffect(() => {
         filterBudgetsForCurrentMonthOnly();
         filterDebtForCurrentMonthOnly();
-    }, [budgets, debt]);
+        filterSavingForCurrentMonthOnly();
+    }, [budgets, debt, savings]);
 
     async function getIncome() {
         try {
@@ -298,6 +299,19 @@ const HomePage = () => {
         setCurrentMonthDebt(tempCurrentMonth);
     }
 
+    async function filterSavingForCurrentMonthOnly() {
+        let tempCurrentMonth = [];
+        savings.map((item) => {
+            let dateStr = item.date;
+            let [year, month, day] = dateStr.split("-");
+            month = parseInt(month - 1);
+            if (year == currentYear && month === currentMonth) {
+                tempCurrentMonth.push(item);
+            }
+        });
+        setCurrentMonthSaving(tempCurrentMonth);
+    }
+
     return (
         <div>
             {income ? (
@@ -323,13 +337,16 @@ const HomePage = () => {
             ) : null}
             {income ? (
                 <SavingsInvestments
-                    arrayOfSavings={savings}
+                    arrayOfSavings={currentMonthSaving}
                     axiosCreateSavings={createNewSavingInvest}
                     axiosUpdateSavings={axiosUpdateSavings}
                 />
             ) : null}
             {income ? (
-                <NetWorth savingsInvestmentArray={savings} debtArray={debt} />
+                <NetWorth
+                    savingsInvestmentArray={currentMonthSaving}
+                    debtArray={currentMonthDebt}
+                />
             ) : null}
             {income ? (
                 <FinanceOverTime
