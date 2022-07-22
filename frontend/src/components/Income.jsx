@@ -32,7 +32,7 @@ const Income = ({ state, updateIncome }) => {
                     onChange={(event) => setMonthly(event.target.value)}
                 />
                 <br />
-                <button className="update-income-button">Update</button>
+                <button className="update-buttons">Update</button>
             </form>
         </div>
     );

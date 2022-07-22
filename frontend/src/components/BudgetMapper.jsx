@@ -46,7 +46,10 @@ const BudgetMapper = ({ budgetsArray, income, axiosUpdateBudget }) => {
                             })}
                         </tbody>
                     </table>
-                    <button onClick={() => setUpdateBool(!updateBool)}>
+                    <button
+                        className="update-buttons"
+                        onClick={() => setUpdateBool(!updateBool)}
+                    >
                         Update
                     </button>
                 </div>

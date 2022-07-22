@@ -347,7 +347,7 @@ const UpdateBudget = ({
                     }
                 />
             </div>
-            <button className="budget-update-button">Update</button>
+            <button className="budget-update-button-form">Update</button>
         </form>
     );
 };

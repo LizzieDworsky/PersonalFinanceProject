@@ -62,7 +62,7 @@ const UpdateDebts = ({ debtToEdit, axiosUpdateDebt }) => {
                     }
                 />
             </div>
-            <button className="budget-update-button saving-debt-update-button">
+            <button className="debt-add-update-button saving-debt-update-button">
                 Update
             </button>
         </form>

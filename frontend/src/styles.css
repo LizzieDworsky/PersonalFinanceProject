@@ -173,7 +173,7 @@ hr {
     font-size: 150%;
 }
 
-.update-income-button {
+.update-buttons {
     font-size: 75%;
     padding: 4px 10px;
     margin-top: 8px;
@@ -219,7 +219,7 @@ hr {
     margin-top: 15px;
 }
 
-.budget-update-button {
+.budget-update-button-form {
     margin-top: 3%;
 }
 
@@ -235,4 +235,8 @@ hr {
 
 .saving-debt-update-button {
     margin-bottom: 1em;
+}
+
+.debt-add-update-button {
+    margin-top: 3%;
 }

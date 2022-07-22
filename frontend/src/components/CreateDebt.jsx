@@ -47,7 +47,7 @@ const CreateDebt = ({ createNewDebt }) => {
                     onChange={(event) => setTotalOwed(event.target.value)}
                 />
             </div>
-            <button className="budget-update-button">Add New</button>
+            <button className="debt-add-update-button">Add New</button>
         </form>
     );
 };
