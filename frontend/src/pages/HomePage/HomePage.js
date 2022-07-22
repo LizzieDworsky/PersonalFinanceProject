@@ -328,20 +328,22 @@ const HomePage = () => {
                     axiosUpdateBudget={axiosUpdateBudget}
                 />
             ) : null}
-            {income ? (
-                <Debt
-                    arrayOfDebts={currentMonthDebt}
-                    createNewDebt={createNewDebt}
-                    axiosUpdateDebt={axiosUpdateDebt}
-                />
-            ) : null}
-            {income ? (
-                <SavingsInvestments
-                    arrayOfSavings={currentMonthSaving}
-                    axiosCreateSavings={createNewSavingInvest}
-                    axiosUpdateSavings={axiosUpdateSavings}
-                />
-            ) : null}
+            <div className="debt-savings-container">
+                {income ? (
+                    <Debt
+                        arrayOfDebts={currentMonthDebt}
+                        createNewDebt={createNewDebt}
+                        axiosUpdateDebt={axiosUpdateDebt}
+                    />
+                ) : null}
+                {income ? (
+                    <SavingsInvestments
+                        arrayOfSavings={currentMonthSaving}
+                        axiosCreateSavings={createNewSavingInvest}
+                        axiosUpdateSavings={axiosUpdateSavings}
+                    />
+                ) : null}
+            </div>
             {income ? (
                 <NetWorth
                     savingsInvestmentArray={currentMonthSaving}

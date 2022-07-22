@@ -10,8 +10,9 @@ const Budget = ({
     axiosUpdateBudget,
 }) => {
     return (
-        <div>
+        <div className="budget-comp-container">
             <h2>Your Budget Matters</h2>
+            <hr />
             {budgetsArray[0] ? (
                 <BudgetMapper
                     budgetsArray={budgetsArray}

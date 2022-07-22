@@ -98,6 +98,18 @@ input[type="checkbox"]:checked {
     clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
 }
 
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+hr {
+    color: #025928;
+    border: none;
+    border-top: 1px dotted #025928;
+    margin: 10px 0;
+}
+
 .container {
     margin: 0 auto;
     max-width: 600px;
@@ -155,4 +167,18 @@ input[type="checkbox"]:checked {
 .income-comp-container {
     margin-top: 5em;
     margin-bottom: 3em;
+}
+
+.debt-savings-container {
+    display: inline-block;
+    width: 50%;
+}
+
+.budget-comp-container {
+    border: 1px dotted #025928;
+    margin: auto;
+    width: 60%;
+    padding: 1%;
+    border-radius: 20px;
+    /* background-color: ; */
 }
