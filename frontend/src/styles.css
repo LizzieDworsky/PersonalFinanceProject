@@ -226,5 +226,10 @@ hr {
 }
 
 .form-checkbox-investment {
-    margin: 19px;
+    margin-top: 25px;
+    margin-bottom: 7px;
+}
+
+.saving-debt-update-button {
+    margin-bottom: 1em;
 }

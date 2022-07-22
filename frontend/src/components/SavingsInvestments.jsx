@@ -17,6 +17,7 @@ const SavingsInvestments = ({
                     axiosUpdateSavings={axiosUpdateSavings}
                 />
             ) : null}
+            <hr />
             <CreateSavings axiosCreateSavings={axiosCreateSavings} />
         </div>
     );

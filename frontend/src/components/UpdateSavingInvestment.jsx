@@ -24,32 +24,49 @@ const UpdateSavingInvestment = ({ savingToEdit, axiosUpdateSavings }) => {
 
     return (
         <form onSubmit={(event) => handleCurrentSavingUpdate(event)}>
-            <label>Name</label>
-            <input
-                type="text"
-                value={savingInvestName}
-                onChange={(event) => setSavingInvestName(event.target.value)}
-            />
-            <label>Total Saved</label>
-            <input
-                type="text"
-                value={savingInvestTotal}
-                onChange={(event) => setSavingInvestTotal(event.target.value)}
-            />
-            <label>Investment?</label>
-            <input
-                type="checkbox"
-                value={savingInvestBool}
-                checked={savingInvestBool}
-                onChange={(event) => setSavingInvestBool(!savingInvestBool)}
-            />
-            <label>Today's Date</label>
-            <input
-                type="date"
-                value={savingInvestDate}
-                onChange={(event) => setSavingInvestDate(event.target.value)}
-            />
-            <button>Update</button>
+            <div className="form-individual-input-boxs">
+                <label className="form-labels">Today's Date</label>
+                <input
+                    className="form-inputs"
+                    type="date"
+                    value={savingInvestDate}
+                    onChange={(event) =>
+                        setSavingInvestDate(event.target.value)
+                    }
+                />
+            </div>
+            <div className="form-individual-input-boxs">
+                <label className="form-labels">Name</label>
+                <input
+                    className="form-inputs"
+                    type="text"
+                    value={savingInvestName}
+                    onChange={(event) =>
+                        setSavingInvestName(event.target.value)
+                    }
+                />
+            </div>
+            <div className="form-individual-input-boxs">
+                <label className="form-labels">Total Saved</label>
+                <input
+                    className="form-inputs"
+                    type="text"
+                    value={savingInvestTotal}
+                    onChange={(event) =>
+                        setSavingInvestTotal(event.target.value)
+                    }
+                />
+            </div>
+            <div className="form-checkbox-investment">
+                <label className="form-labels">Investment?</label>
+                <input
+                    type="checkbox"
+                    value={savingInvestBool}
+                    checked={savingInvestBool}
+                    onChange={(event) => setSavingInvestBool(!savingInvestBool)}
+                />
+            </div>
+            <button className="saving-debt-update-button">Update</button>
         </form>
     );
 };

@@ -21,7 +21,7 @@ const CreateSavings = ({ axiosCreateSavings }) => {
             onSubmit={(event) => handleCreateSavings(event)}
         >
             <div className="form-individual-input-boxs">
-                <label className="form-labels">Name</label>
+                <label className="form-labels">Saving's Name</label>
                 <input
                     className="form-inputs"
                     type="text"

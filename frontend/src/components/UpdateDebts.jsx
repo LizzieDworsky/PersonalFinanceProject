@@ -24,33 +24,47 @@ const UpdateDebts = ({ debtToEdit, axiosUpdateDebt }) => {
 
     return (
         <form onSubmit={(event) => handleCurrentDebtUpdate(event)}>
-            <label>Name</label>
-            <input
-                type="text"
-                value={currentDebtName}
-                onChange={(event) => setCurrentDebtName(event.target.value)}
-            />
-            <label>Total Owed</label>
-            <input
-                type="text"
-                value={currentDebtOwed}
-                onChange={(event) => setCurrentDebtOwed(event.target.value)}
-            />
-            <label>Minimum Payment</label>
-            <input
-                type="text"
-                value={currentDebtMinPayment}
-                onChange={(event) =>
-                    setCurrentDebtMinPayment(event.target.value)
-                }
-            />
-            <label>Today's Date</label>
-            <input
-                type="date"
-                value={currentDebtDate}
-                onChange={(event) => setCurrentDebtDate(event.target.value)}
-            />
-            <button>Update</button>
+            <div className="form-individual-input-boxs">
+                <label className="form-labels">Today's Date</label>
+                <input
+                    className="form-inputs"
+                    type="date"
+                    value={currentDebtDate}
+                    onChange={(event) => setCurrentDebtDate(event.target.value)}
+                />
+            </div>
+            <div className="form-individual-input-boxs">
+                <label className="form-labels">Name</label>
+                <input
+                    className="form-inputs"
+                    type="text"
+                    value={currentDebtName}
+                    onChange={(event) => setCurrentDebtName(event.target.value)}
+                />
+            </div>
+            <div className="form-individual-input-boxs">
+                <label className="form-labels">Total Owed</label>
+                <input
+                    className="form-inputs"
+                    type="text"
+                    value={currentDebtOwed}
+                    onChange={(event) => setCurrentDebtOwed(event.target.value)}
+                />
+            </div>
+            <div className="form-individual-input-boxs">
+                <label className="form-labels">Minimum Payment</label>
+                <input
+                    className="form-inputs"
+                    type="text"
+                    value={currentDebtMinPayment}
+                    onChange={(event) =>
+                        setCurrentDebtMinPayment(event.target.value)
+                    }
+                />
+            </div>
+            <button className="budget-update-button saving-debt-update-button">
+                Update
+            </button>
         </form>
     );
 };

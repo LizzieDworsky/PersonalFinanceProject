@@ -13,6 +13,7 @@ const Debt = ({ arrayOfDebts, createNewDebt, axiosUpdateDebt }) => {
                     axiosUpdateDebt={axiosUpdateDebt}
                 />
             ) : null}
+            <hr />
             <CreateDebt createNewDebt={createNewDebt} />
         </div>
     );
