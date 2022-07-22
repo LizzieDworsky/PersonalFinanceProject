@@ -15,7 +15,15 @@ const FinanceOverTime = ({
     }, [budgetsArray, savingsArray, debtArray]);
 
     const data = [
-        ["Month", "Budget Total", "Total Savings and Invested", "Total Debt"],
+        [
+            "Month",
+            "Budget Total",
+            { role: "annotation" },
+            "Total Saved and Invested",
+            { role: "annotation" },
+            "Total Debt",
+            { role: "annotation" },
+        ],
         ...arrayForChart,
     ];
 
@@ -30,6 +38,12 @@ const FinanceOverTime = ({
             format: "currency",
             gridlines: {
                 color: "#2F4858",
+            },
+        },
+        annotations: {
+            textStyle: {
+                bold: true,
+                auraColor: "#fffbce",
             },
         },
     };
@@ -122,7 +136,10 @@ const FinanceOverTime = ({
             tempArrayTotals.push([
                 element,
                 currentMonthBudgetTotal,
+                currentMonthBudgetTotal,
                 currentMonthSavingsTotal,
+                currentMonthSavingsTotal,
+                currentMonthDebtTotal,
                 currentMonthDebtTotal,
             ]);
         });
