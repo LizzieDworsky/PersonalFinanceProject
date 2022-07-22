@@ -16,26 +16,38 @@ const CreateDebt = ({ createNewDebt }) => {
     }
 
     return (
-        <form onSubmit={(event) => handleCreateDebt(event)}>
-            <label>Debt Name</label>
-            <input
-                type="text"
-                value={debtName}
-                onChange={(event) => setDebtName(event.target.value)}
-            />
-            <label>Minimum Payment</label>
-            <input
-                type="text"
-                value={minPayment}
-                onChange={(event) => setMinPayment(event.target.value)}
-            />
-            <label>Total Owed</label>
-            <input
-                type="text"
-                value={totalOwed}
-                onChange={(event) => setTotalOwed(event.target.value)}
-            />
-            <button>Add New</button>
+        <form
+            className="budget-update-form"
+            onSubmit={(event) => handleCreateDebt(event)}
+        >
+            <div className="form-individual-input-boxs">
+                <label className="form-labels">Debt Name</label>
+                <input
+                    className="form-inputs"
+                    type="text"
+                    value={debtName}
+                    onChange={(event) => setDebtName(event.target.value)}
+                />
+            </div>
+            <div className="form-individual-input-boxs">
+                <label className="form-labels">Minimum Payment</label>
+                <input
+                    className="form-inputs"
+                    type="text"
+                    value={minPayment}
+                    onChange={(event) => setMinPayment(event.target.value)}
+                />
+            </div>
+            <div className="form-individual-input-boxs">
+                <label className="form-labels">Total Owed</label>
+                <input
+                    className="form-inputs"
+                    type="text"
+                    value={totalOwed}
+                    onChange={(event) => setTotalOwed(event.target.value)}
+                />
+            </div>
+            <button className="budget-update-button">Add New</button>
         </form>
     );
 };

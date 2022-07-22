@@ -4,8 +4,9 @@ import DebtMapper from "./DebtMapper";
 
 const Debt = ({ arrayOfDebts, createNewDebt, axiosUpdateDebt }) => {
     return (
-        <div>
+        <div className="debt-savings-internal-container">
             <h2>Your Debt Matters</h2>
+            <hr />
             {arrayOfDebts[0] ? (
                 <DebtMapper
                     arrayOfDebts={arrayOfDebts}

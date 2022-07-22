@@ -50,6 +50,7 @@ th {
 
 td {
     color: #025928;
+    padding: 1.5%;
 }
 
 button {
@@ -111,6 +112,7 @@ input[type="checkbox"]:checked {
 table {
     margin-left: auto;
     margin-right: auto;
+    width: 100%;
 }
 
 hr {
@@ -180,8 +182,19 @@ hr {
 }
 
 .debt-savings-container {
-    display: inline-block;
-    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.debt-savings-internal-container {
+    width: 45%;
+    margin: 2%;
+    padding: 1%;
+    padding-bottom: 3%;
+    border: 1px dotted #025928;
+    border-radius: 20px;
+    background-color: #eaf4be51;
 }
 
 .budget-comp-container {
@@ -191,15 +204,15 @@ hr {
     padding: 1%;
     padding-bottom: 2%;
     border-radius: 20px;
-    margin-bottom: 3em;
+    margin-bottom: 2em;
     background-color: #eaf4be51;
 }
 
-.budget-form-label {
+.form-labels {
     display: block;
 }
 
-.budget-form-individual-input-box {
+.form-individual-input-boxs {
     margin-top: 15px;
 }
 
@@ -207,11 +220,11 @@ hr {
     margin-top: 3%;
 }
 
-/* .budget-update-form {
-    display: flexbox;
-} */
-
-.budget-form-input {
+.form-inputs {
     width: 90%;
     padding: 6px;
+}
+
+.form-checkbox-investment {
+    margin: 19px;
 }

@@ -8,8 +8,9 @@ const SavingsInvestments = ({
     axiosUpdateSavings,
 }) => {
     return (
-        <div>
+        <div className="debt-savings-internal-container">
             <h2>Your Saving Matters</h2>
+            <hr />
             {arrayOfSavings[0] ? (
                 <SavingsInvestmentsMapper
                     arrayOfSavings={arrayOfSavings}

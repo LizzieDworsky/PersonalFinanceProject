@@ -192,10 +192,10 @@ const UpdateBudget = ({
             className="budget-update-form"
             onSubmit={(event) => handleUserBudgetUpdate(event)}
         >
-            <div className="budget-form-individual-input-box">
-                <label className="budget-form-label">Today's Date</label>
+            <div className="form-individual-input-boxs">
+                <label className="form-labels">Today's Date</label>
                 <input
-                    className="budget-form-input"
+                    className="form-inputs"
                     type="date"
                     value={updateBudgetDate}
                     onChange={(event) =>
@@ -203,23 +203,23 @@ const UpdateBudget = ({
                     }
                 />
             </div>
-            <div className="budget-form-individual-input-box">
-                <label className="budget-form-label">
+            <div className="form-individual-input-boxs">
+                <label className="form-labels">
                     {budgetsArray[0].category.name}
                 </label>
                 <input
-                    className="budget-form-input"
+                    className="form-inputs"
                     tylabele="text"
                     value={firstBudgetLine}
                     onChange={(event) => setFirstBudgetLine(event.target.value)}
                 />
             </div>
-            <div className="budget-form-individual-input-box">
-                <label className="budget-form-label">
+            <div className="form-individual-input-boxs">
+                <label className="form-labels">
                     {budgetsArray[1].category.name}
                 </label>
                 <input
-                    className="budget-form-input"
+                    className="form-inputs"
                     tylabele="text"
                     value={secondBudgetLine}
                     onChange={(event) =>
@@ -227,23 +227,23 @@ const UpdateBudget = ({
                     }
                 />
             </div>
-            <div className="budget-form-individual-input-box">
-                <label className="budget-form-label">
+            <div className="form-individual-input-boxs">
+                <label className="form-labels">
                     {budgetsArray[2].category.name}
                 </label>
                 <input
-                    className="budget-form-input"
+                    className="form-inputs"
                     tylabele="text"
                     value={thirdBudgetLine}
                     onChange={(event) => setThirdBudgetLine(event.target.value)}
                 />
             </div>
-            <div className="budget-form-individual-input-box">
-                <label className="budget-form-label">
+            <div className="form-individual-input-boxs">
+                <label className="form-labels">
                     {budgetsArray[3].category.name}
                 </label>
                 <input
-                    className="budget-form-input"
+                    className="form-inputs"
                     tylabele="text"
                     value={fourthBudgetLine}
                     onChange={(event) =>
@@ -251,34 +251,34 @@ const UpdateBudget = ({
                     }
                 />
             </div>
-            <div className="budget-form-individual-input-box">
-                <label className="budget-form-label">
+            <div className="form-individual-input-boxs">
+                <label className="form-labels">
                     {budgetsArray[4].category.name}
                 </label>
                 <input
-                    className="budget-form-input"
+                    className="form-inputs"
                     tylabele="text"
                     value={fifthBudgetLine}
                     onChange={(event) => setFifthBudgetLine(event.target.value)}
                 />
             </div>
-            <div className="budget-form-individual-input-box">
-                <label className="budget-form-label">
+            <div className="form-individual-input-boxs">
+                <label className="form-labels">
                     {budgetsArray[5].category.name}
                 </label>
                 <input
-                    className="budget-form-input"
+                    className="form-inputs"
                     tylabele="text"
                     value={sixthBudgetLine}
                     onChange={(event) => setSixthBudgetLine(event.target.value)}
                 />
             </div>
-            <div className="budget-form-individual-input-box">
-                <label className="budget-form-label">
+            <div className="form-individual-input-boxs">
+                <label className="form-labels">
                     {budgetsArray[6].category.name}
                 </label>
                 <input
-                    className="budget-form-input"
+                    className="form-inputs"
                     tylabele="text"
                     value={seventhBudgetLine}
                     onChange={(event) =>
@@ -286,12 +286,12 @@ const UpdateBudget = ({
                     }
                 />
             </div>
-            <div className="budget-form-individual-input-box">
-                <label className="budget-form-label">
+            <div className="form-individual-input-boxs">
+                <label className="form-labels">
                     {budgetsArray[7].category.name}
                 </label>
                 <input
-                    className="budget-form-input"
+                    className="form-inputs"
                     tylabele="text"
                     value={eighthBudgetLine}
                     onChange={(event) =>
@@ -299,34 +299,34 @@ const UpdateBudget = ({
                     }
                 />
             </div>
-            <div className="budget-form-individual-input-box">
-                <label className="budget-form-label">
+            <div className="form-individual-input-boxs">
+                <label className="form-labels">
                     {budgetsArray[8].category.name}
                 </label>
                 <input
-                    className="budget-form-input"
+                    className="form-inputs"
                     tylabele="text"
                     value={ninthBudgetLine}
                     onChange={(event) => setNinthBudgetLine(event.target.value)}
                 />
             </div>
-            <div className="budget-form-individual-input-box">
-                <label className="budget-form-label">
+            <div className="form-individual-input-boxs">
+                <label className="form-labels">
                     {budgetsArray[9].category.name}
                 </label>
                 <input
-                    className="budget-form-input"
+                    className="form-inputs"
                     tylabele="text"
                     value={tenthBudgetLine}
                     onChange={(event) => setTenthBudgetLine(event.target.value)}
                 />
             </div>
-            <div className="budget-form-individual-input-box">
-                <label className="budget-form-label">
+            <div className="form-individual-input-boxs">
+                <label className="form-labels">
                     {budgetsArray[10].category.name}
                 </label>
                 <input
-                    className="budget-form-input"
+                    className="form-inputs"
                     tylabele="text"
                     value={eleventhBudgetLine}
                     onChange={(event) =>
@@ -334,12 +334,12 @@ const UpdateBudget = ({
                     }
                 />
             </div>
-            <div className="budget-form-individual-input-box">
-                <label className="budget-form-label">
+            <div className="form-individual-input-boxs">
+                <label className="form-labels">
                     {budgetsArray[11].category.name}
                 </label>
                 <input
-                    className="budget-form-input"
+                    className="form-inputs"
                     tylabele="text"
                     value={twelfthBudgetLine}
                     onChange={(event) =>

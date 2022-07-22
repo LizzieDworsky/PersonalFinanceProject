@@ -16,25 +16,36 @@ const CreateSavings = ({ axiosCreateSavings }) => {
     }
 
     return (
-        <form onSubmit={(event) => handleCreateSavings(event)}>
-            <label>Name</label>
-            <input
-                type="text"
-                value={savingName}
-                onChange={(event) => setSavingName(event.target.value)}
-            />
-            <label>Total Saved</label>
-            <input
-                type="text"
-                value={totalSaved}
-                onChange={(event) => setTotalSaved(event.target.value)}
-            />
-            <label>Investment?</label>
-            <input
-                type="checkbox"
-                value={isInvestment}
-                onChange={(event) => setIsInvestment(!isInvestment)}
-            />
+        <form
+            className="budget-update-form"
+            onSubmit={(event) => handleCreateSavings(event)}
+        >
+            <div className="form-individual-input-boxs">
+                <label className="form-labels">Name</label>
+                <input
+                    className="form-inputs"
+                    type="text"
+                    value={savingName}
+                    onChange={(event) => setSavingName(event.target.value)}
+                />
+            </div>
+            <div className="form-individual-input-boxs">
+                <label className="form-labels">Total Saved</label>
+                <input
+                    className="form-inputs"
+                    type="text"
+                    value={totalSaved}
+                    onChange={(event) => setTotalSaved(event.target.value)}
+                />
+            </div>
+            <div className="form-checkbox-investment">
+                <label className="form-labels">Investment?</label>
+                <input
+                    type="checkbox"
+                    value={isInvestment}
+                    onChange={(event) => setIsInvestment(!isInvestment)}
+                />
+            </div>
             <button>Add New</button>
         </form>
     );
