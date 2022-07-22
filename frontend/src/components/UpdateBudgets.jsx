@@ -188,86 +188,166 @@ const UpdateBudget = ({
     }
 
     return (
-        <form onSubmit={(event) => handleUserBudgetUpdate(event)}>
-            <label>Today's Date</label>
-            <input
-                type="date"
-                value={updateBudgetDate}
-                onChange={(event) => setUpdateBudgetDate(event.target.value)}
-            />
-            <label>{budgetsArray[0].category.name}</label>
-            <input
-                tylabele="text"
-                value={firstBudgetLine}
-                onChange={(event) => setFirstBudgetLine(event.target.value)}
-            />
-            <label>{budgetsArray[1].category.name}</label>
-            <input
-                tylabele="text"
-                value={secondBudgetLine}
-                onChange={(event) => setSecondBudgetLine(event.target.value)}
-            />
-            <label>{budgetsArray[2].category.name}</label>
-            <input
-                tylabele="text"
-                value={thirdBudgetLine}
-                onChange={(event) => setThirdBudgetLine(event.target.value)}
-            />
-            <label>{budgetsArray[3].category.name}</label>
-            <input
-                tylabele="text"
-                value={fourthBudgetLine}
-                onChange={(event) => setFourthBudgetLine(event.target.value)}
-            />
-            <label>{budgetsArray[4].category.name}</label>
-            <input
-                tylabele="text"
-                value={fifthBudgetLine}
-                onChange={(event) => setFifthBudgetLine(event.target.value)}
-            />
-            <label>{budgetsArray[5].category.name}</label>
-            <input
-                tylabele="text"
-                value={sixthBudgetLine}
-                onChange={(event) => setSixthBudgetLine(event.target.value)}
-            />
-            <label>{budgetsArray[6].category.name}</label>
-            <input
-                tylabele="text"
-                value={seventhBudgetLine}
-                onChange={(event) => setSeventhBudgetLine(event.target.value)}
-            />
-            <label>{budgetsArray[7].category.name}</label>
-            <input
-                tylabele="text"
-                value={eighthBudgetLine}
-                onChange={(event) => setEighthBudgetLine(event.target.value)}
-            />
-            <label>{budgetsArray[8].category.name}</label>
-            <input
-                tylabele="text"
-                value={ninthBudgetLine}
-                onChange={(event) => setNinthBudgetLine(event.target.value)}
-            />
-            <label>{budgetsArray[9].category.name}</label>
-            <input
-                tylabele="text"
-                value={tenthBudgetLine}
-                onChange={(event) => setTenthBudgetLine(event.target.value)}
-            />
-            <label>{budgetsArray[10].category.name}</label>
-            <input
-                tylabele="text"
-                value={eleventhBudgetLine}
-                onChange={(event) => setEleventhBudgetLine(event.target.value)}
-            />
-            <label>{budgetsArray[11].category.name}</label>
-            <input
-                tylabele="text"
-                value={twelfthBudgetLine}
-                onChange={(event) => setTwelfthBudgetLine(event.target.value)}
-            />
-            <button>Update</button>
+        <form
+            className="budget-update-form"
+            onSubmit={(event) => handleUserBudgetUpdate(event)}
+        >
+            <div className="budget-form-individual-input-box">
+                <label className="budget-form-label">Today's Date</label>
+                <input
+                    className="budget-form-input"
+                    type="date"
+                    value={updateBudgetDate}
+                    onChange={(event) =>
+                        setUpdateBudgetDate(event.target.value)
+                    }
+                />
+            </div>
+            <div className="budget-form-individual-input-box">
+                <label className="budget-form-label">
+                    {budgetsArray[0].category.name}
+                </label>
+                <input
+                    className="budget-form-input"
+                    tylabele="text"
+                    value={firstBudgetLine}
+                    onChange={(event) => setFirstBudgetLine(event.target.value)}
+                />
+            </div>
+            <div className="budget-form-individual-input-box">
+                <label className="budget-form-label">
+                    {budgetsArray[1].category.name}
+                </label>
+                <input
+                    className="budget-form-input"
+                    tylabele="text"
+                    value={secondBudgetLine}
+                    onChange={(event) =>
+                        setSecondBudgetLine(event.target.value)
+                    }
+                />
+            </div>
+            <div className="budget-form-individual-input-box">
+                <label className="budget-form-label">
+                    {budgetsArray[2].category.name}
+                </label>
+                <input
+                    className="budget-form-input"
+                    tylabele="text"
+                    value={thirdBudgetLine}
+                    onChange={(event) => setThirdBudgetLine(event.target.value)}
+                />
+            </div>
+            <div className="budget-form-individual-input-box">
+                <label className="budget-form-label">
+                    {budgetsArray[3].category.name}
+                </label>
+                <input
+                    className="budget-form-input"
+                    tylabele="text"
+                    value={fourthBudgetLine}
+                    onChange={(event) =>
+                        setFourthBudgetLine(event.target.value)
+                    }
+                />
+            </div>
+            <div className="budget-form-individual-input-box">
+                <label className="budget-form-label">
+                    {budgetsArray[4].category.name}
+                </label>
+                <input
+                    className="budget-form-input"
+                    tylabele="text"
+                    value={fifthBudgetLine}
+                    onChange={(event) => setFifthBudgetLine(event.target.value)}
+                />
+            </div>
+            <div className="budget-form-individual-input-box">
+                <label className="budget-form-label">
+                    {budgetsArray[5].category.name}
+                </label>
+                <input
+                    className="budget-form-input"
+                    tylabele="text"
+                    value={sixthBudgetLine}
+                    onChange={(event) => setSixthBudgetLine(event.target.value)}
+                />
+            </div>
+            <div className="budget-form-individual-input-box">
+                <label className="budget-form-label">
+                    {budgetsArray[6].category.name}
+                </label>
+                <input
+                    className="budget-form-input"
+                    tylabele="text"
+                    value={seventhBudgetLine}
+                    onChange={(event) =>
+                        setSeventhBudgetLine(event.target.value)
+                    }
+                />
+            </div>
+            <div className="budget-form-individual-input-box">
+                <label className="budget-form-label">
+                    {budgetsArray[7].category.name}
+                </label>
+                <input
+                    className="budget-form-input"
+                    tylabele="text"
+                    value={eighthBudgetLine}
+                    onChange={(event) =>
+                        setEighthBudgetLine(event.target.value)
+                    }
+                />
+            </div>
+            <div className="budget-form-individual-input-box">
+                <label className="budget-form-label">
+                    {budgetsArray[8].category.name}
+                </label>
+                <input
+                    className="budget-form-input"
+                    tylabele="text"
+                    value={ninthBudgetLine}
+                    onChange={(event) => setNinthBudgetLine(event.target.value)}
+                />
+            </div>
+            <div className="budget-form-individual-input-box">
+                <label className="budget-form-label">
+                    {budgetsArray[9].category.name}
+                </label>
+                <input
+                    className="budget-form-input"
+                    tylabele="text"
+                    value={tenthBudgetLine}
+                    onChange={(event) => setTenthBudgetLine(event.target.value)}
+                />
+            </div>
+            <div className="budget-form-individual-input-box">
+                <label className="budget-form-label">
+                    {budgetsArray[10].category.name}
+                </label>
+                <input
+                    className="budget-form-input"
+                    tylabele="text"
+                    value={eleventhBudgetLine}
+                    onChange={(event) =>
+                        setEleventhBudgetLine(event.target.value)
+                    }
+                />
+            </div>
+            <div className="budget-form-individual-input-box">
+                <label className="budget-form-label">
+                    {budgetsArray[11].category.name}
+                </label>
+                <input
+                    className="budget-form-input"
+                    tylabele="text"
+                    value={twelfthBudgetLine}
+                    onChange={(event) =>
+                        setTwelfthBudgetLine(event.target.value)
+                    }
+                />
+            </div>
+            <button className="budget-update-button">Update</button>
         </form>
     );
 };

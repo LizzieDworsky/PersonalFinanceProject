@@ -22,7 +22,9 @@ const FinanceOverTime = ({
     const options = {
         curveType: "function",
         legend: { position: "bottom" },
-        backgroundColor: "#eaf4be",
+        backgroundColor: {
+            fill: "transparent",
+        },
         colors: ["#8F9CFF", "#009AF0", "#1A8784"],
         vAxis: {
             format: "currency",

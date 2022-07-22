@@ -75,6 +75,16 @@ input {
     border: 2px solid #025928;
     border-radius: 5px;
     box-shadow: 1px 1px 5px black;
+    transition: all 200ms ease-in-out;
+}
+
+input:hover {
+    box-shadow: 2px 2px 8px black;
+}
+
+input:focus {
+    outline: none;
+    border: 3px solid #025928;
 }
 
 label {
@@ -165,8 +175,8 @@ hr {
 }
 
 .income-comp-container {
-    margin-top: 5em;
-    margin-bottom: 3em;
+    margin-top: 2em;
+    margin-bottom: 2em;
 }
 
 .debt-savings-container {
@@ -179,6 +189,29 @@ hr {
     margin: auto;
     width: 60%;
     padding: 1%;
+    padding-bottom: 2%;
     border-radius: 20px;
-    /* background-color: ; */
+    margin-bottom: 3em;
+    background-color: #eaf4be51;
+}
+
+.budget-form-label {
+    display: block;
+}
+
+.budget-form-individual-input-box {
+    margin-top: 15px;
+}
+
+.budget-update-button {
+    margin-top: 3%;
+}
+
+/* .budget-update-form {
+    display: flexbox;
+} */
+
+.budget-form-input {
+    width: 90%;
+    padding: 6px;
 }
