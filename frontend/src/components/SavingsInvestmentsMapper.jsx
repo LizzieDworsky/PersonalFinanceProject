@@ -3,9 +3,11 @@ import UpdateSavingInvestment from "./UpdateSavingInvestment";
 
 const SavingsInvestmentsMapper = ({ arrayOfSavings, axiosUpdateSavings }) => {
     const [savingsToEdit, setSavingsToEdit] = useState();
+    const [savingEditBool, setSavingEditBool] = useState(false);
 
     function captureItem(item) {
         setSavingsToEdit(item);
+        setSavingEditBool(!savingEditBool);
     }
 
     return (
@@ -38,7 +40,7 @@ const SavingsInvestmentsMapper = ({ arrayOfSavings, axiosUpdateSavings }) => {
                     })}
                 </tbody>
             </table>
-            {savingsToEdit ? (
+            {savingEditBool ? (
                 <UpdateSavingInvestment
                     savingToEdit={savingsToEdit}
                     axiosUpdateSavings={axiosUpdateSavings}

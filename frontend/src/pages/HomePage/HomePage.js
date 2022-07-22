@@ -251,7 +251,7 @@ const HomePage = () => {
                     },
                 }
             );
-            window.location.reload();
+            setRerender(!rerender);
         } catch (error) {
             console.log(error.response.data);
         }
@@ -267,7 +267,7 @@ const HomePage = () => {
                     },
                 }
             );
-            window.location.reload();
+            setRerender(!rerender);
         } catch (error) {
             console.log(error.response.data);
         }

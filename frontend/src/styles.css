@@ -162,18 +162,21 @@ hr {
 }
 
 .update-income-input {
-    max-width: 130px;
+    max-width: 160px;
     margin: 5px 25px;
+    padding: 3px;
 }
 
 .income-script {
     display: inline;
     margin: 15px;
+    font-size: 150%;
 }
 
 .update-income-button {
-    font-size: 70%;
+    font-size: 75%;
     padding: 4px 10px;
+    margin-top: 8px;
 }
 
 .income-comp-container {

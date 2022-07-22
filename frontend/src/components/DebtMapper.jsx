@@ -3,9 +3,11 @@ import UpdateDebts from "./UpdateDebts";
 
 const DebtMapper = ({ arrayOfDebts, axiosUpdateDebt }) => {
     const [debtToEdit, setDebtToEdit] = useState();
+    const [debtEditBool, setDebtEditBool] = useState(false);
 
     function captureItem(item) {
         setDebtToEdit(item);
+        setDebtEditBool(!debtEditBool);
     }
 
     return (
@@ -34,7 +36,7 @@ const DebtMapper = ({ arrayOfDebts, axiosUpdateDebt }) => {
                     })}
                 </tbody>
             </table>
-            {debtToEdit ? (
+            {debtEditBool ? (
                 <UpdateDebts
                     debtToEdit={debtToEdit}
                     axiosUpdateDebt={axiosUpdateDebt}
