@@ -10,12 +10,12 @@
 
 body {
     background-image: linear-gradient(
-        to right top,
+        to right bottom,
         #fffbce,
-        #eaf4be,
-        #d2edb2,
-        #b6e7a9,
-        #95e0a5
+        #e8f3b9,
+        #cceba8,
+        #abe49b,
+        #81dd95
     );
 }
 
@@ -54,10 +54,10 @@ td {
 }
 
 button {
-    background-color: transparent;
+    background-color: #025928;
     border: 2px solid #025928;
     border-radius: 15px;
-    color: #025928;
+    color: #fffbce;
     font-family: inherit;
     max-width: 100px;
     padding: 5px 15px;
@@ -67,8 +67,8 @@ button {
 
 button:hover {
     cursor: pointer;
-    color: #fffbce;
-    background-color: #025928;
+    color: #025928;
+    background-color: transparent;
 }
 
 input {
@@ -107,6 +107,10 @@ input[type="checkbox"] {
 input[type="checkbox"]:checked {
     background-color: #025928;
     clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+input[type="checkbox"]:hover {
+    box-shadow: 3px 3px 8px black;
 }
 
 table {
@@ -198,6 +202,7 @@ hr {
     border: 1px dotted #025928;
     border-radius: 20px;
     background-color: #eaf4be51;
+    min-width: min-content;
 }
 
 .budget-comp-container {
@@ -209,6 +214,7 @@ hr {
     border-radius: 20px;
     margin-bottom: 2em;
     background-color: #eaf4be51;
+    min-width: min-content;
 }
 
 .form-labels {

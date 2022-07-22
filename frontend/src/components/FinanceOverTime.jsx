@@ -25,11 +25,11 @@ const FinanceOverTime = ({
         backgroundColor: {
             fill: "transparent",
         },
-        colors: ["#8F9CFF", "#009AF0", "#1A8784"],
+        colors: ["#4AC09B", "#1FA299", "#17838D"],
         vAxis: {
             format: "currency",
             gridlines: {
-                color: "grey",
+                color: "#2F4858",
             },
         },
     };
