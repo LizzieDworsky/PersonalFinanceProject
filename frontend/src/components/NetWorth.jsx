@@ -17,13 +17,14 @@ const NetWorth = ({ savingsInvestmentArray, debtArray }) => {
             liabilitiesTotal += parseInt(item.total_owed);
         });
         let tempNetWorth = assetTotal - liabilitiesTotal;
+        tempNetWorth = tempNetWorth.toLocaleString("en-US");
         setNetWorth(tempNetWorth);
     }
 
     return (
-        <div>
+        <div className="net-worth-container">
             <h2>Your Net Worth</h2>
-            <h3>{netWorth}</h3>
+            <h3 className="net-worth-total">{`$${netWorth}`}</h3>
         </div>
     );
 };

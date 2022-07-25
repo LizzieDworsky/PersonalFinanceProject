@@ -268,3 +268,19 @@ hr {
 .create-income-button {
     margin-top: 20px;
 }
+
+.net-worth-container {
+    border: 1px dotted #025928;
+    margin: 2em auto;
+    width: 60%;
+    padding: 1%;
+    padding-bottom: 2%;
+    border-radius: 20px;
+    margin-bottom: 2em;
+    background-color: #eaf4be51;
+    min-width: min-content;
+}
+
+.net-worth-total {
+    margin-top: 1em;
+}
