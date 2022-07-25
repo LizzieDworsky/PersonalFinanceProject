@@ -246,3 +246,25 @@ hr {
 .debt-add-update-button {
     margin-top: 3%;
 }
+
+.create-income-container {
+    border: 1px dotted #025928;
+    margin: auto;
+    width: 60%;
+    padding: 1%;
+    padding-bottom: 2%;
+    border-radius: 20px;
+    margin-bottom: 2em;
+    background-color: #eaf4be51;
+    min-width: min-content;
+    margin-bottom: 15em;
+    margin-top: 5em;
+}
+
+.add-income-paragraph {
+    margin-top: 1em;
+}
+
+.create-income-button {
+    margin-top: 20px;
+}

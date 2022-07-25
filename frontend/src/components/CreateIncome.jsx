@@ -14,23 +14,32 @@ const CreateIncome = ({ createIncome }) => {
     }
 
     return (
-        <div>
+        <div className="create-income-container">
             <h2>Your Money Matters</h2>
-            <p>Add Your Income</p>
-            <form onSubmit={(event) => handleCreateIncome(event)}>
-                <label>Yearly(gross)</label>
-                <input
-                    type="text"
-                    value={yearly}
-                    onChange={(event) => setYearly(event.target.value)}
-                />
-                <label>Monthly(net)</label>
-                <input
-                    type="text"
-                    value={monthly}
-                    onChange={(event) => setMonthly(event.target.value)}
-                />
-                <button>Create</button>
+            <p className="add-income-paragraph">Add Your Income</p>
+            <form
+                className="budget-update-form"
+                onSubmit={(event) => handleCreateIncome(event)}
+            >
+                <div className="form-individual-input-boxs">
+                    <label className="form-labels">Yearly(gross)</label>
+                    <input
+                        className="form-inputs"
+                        type="text"
+                        value={yearly}
+                        onChange={(event) => setYearly(event.target.value)}
+                    />
+                </div>
+                <div className="form-individual-input-boxs">
+                    <label className="form-labels">Monthly(net)</label>
+                    <input
+                        className="form-inputs"
+                        type="text"
+                        value={monthly}
+                        onChange={(event) => setMonthly(event.target.value)}
+                    />
+                </div>
+                <button className="create-income-button">Create</button>
             </form>
         </div>
     );
