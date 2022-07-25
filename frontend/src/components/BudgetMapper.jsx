@@ -18,10 +18,10 @@ const BudgetMapper = ({ budgetsArray, income, axiosUpdateBudget }) => {
                         <thead>
                             <tr>
                                 <th>Categories</th>
-                                <th>Dollar Amount</th>
+                                <th>Amount</th>
                                 {/* <th></th> */}
-                                <th>Budgeted %</th>
-                                <th>Recommended %</th>
+                                <th>Budgeted</th>
+                                <th>Recommended</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -29,7 +29,7 @@ const BudgetMapper = ({ budgetsArray, income, axiosUpdateBudget }) => {
                                 return (
                                     <tr key={item.id}>
                                         <td>{item.category.name}</td>
-                                        <td>{item.dollar_amount}</td>
+                                        <td>{`$${item.dollar_amount}`}</td>
                                         {/* <td
                                             onClick={() =>
                                                 setUpdateBool(!updateBool)
@@ -37,9 +37,9 @@ const BudgetMapper = ({ budgetsArray, income, axiosUpdateBudget }) => {
                                         >
                                             Update
                                         </td> */}
-                                        <td>{item.personal_percent}</td>
+                                        <td>{`${item.personal_percent}%`}</td>
                                         <td>
-                                            {item.category.recommended_percent}
+                                            {`${item.category.recommended_percent}%`}
                                         </td>
                                     </tr>
                                 );

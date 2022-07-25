@@ -23,6 +23,9 @@ const SavingsInvestmentsMapper = ({ arrayOfSavings, axiosUpdateSavings }) => {
                 </thead>
                 <tbody>
                     {arrayOfSavings.map((item) => {
+                        let currentSaved = item.total
+                            .toString()
+                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                         return (
                             <tr key={item.id}>
                                 <td>{item.name}</td>
@@ -31,7 +34,7 @@ const SavingsInvestmentsMapper = ({ arrayOfSavings, axiosUpdateSavings }) => {
                                         ? "Investment"
                                         : "Saving"}
                                 </td>
-                                <td>{item.total}</td>
+                                <td>${currentSaved}</td>
                                 <td onClick={(event) => captureItem(item)}>
                                     Update
                                 </td>

@@ -23,11 +23,14 @@ const DebtMapper = ({ arrayOfDebts, axiosUpdateDebt }) => {
                 </thead>
                 <tbody>
                     {arrayOfDebts.map((item) => {
+                        let currentOwed = item.total_owed
+                            .toString()
+                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                         return (
                             <tr key={item.id}>
                                 <td>{item.name}</td>
-                                <td>{item.min_payment}</td>
-                                <td>{item.total_owed}</td>
+                                <td>${item.min_payment}</td>
+                                <td>${currentOwed}</td>
                                 <td onClick={(event) => captureItem(item)}>
                                     Update
                                 </td>
