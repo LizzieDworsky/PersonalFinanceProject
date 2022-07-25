@@ -31,7 +31,9 @@ const Income = ({ state, updateIncome }) => {
                     value={yearly}
                     onChange={(event) => setYearly(event.target.value)}
                 />
-                <label className="update-income-label">Gross</label>
+                <label className="update-income-label gross-income-label">
+                    Gross
+                </label>
                 <input
                     className="update-income-input"
                     type="text"

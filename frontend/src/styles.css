@@ -167,8 +167,12 @@ hr {
 
 .update-income-input {
     max-width: 160px;
-    margin: 5px 3px 5px 25px;
+    margin: 5px 3px 5px 20px;
     padding: 3px;
+}
+
+.gross-income-label {
+    margin-right: 25px;
 }
 
 .update-income-label {
