@@ -23,6 +23,8 @@ const HomePage = () => {
     const [currentMonthDebt, setCurrentMonthDebt] = useState([]);
     const [savings, setSavings] = useState([]);
     const [currentMonthSaving, setCurrentMonthSaving] = useState([]);
+    const [budgetDiplay, setBudgetDisplay] = useState(currentMonthBudget);
+    const [budgetDiplayBool, setBudgetDisplayBool] = useState(true);
 
     const currentYear = new Date().getFullYear();
     const currentMonth = new Date().getMonth();
@@ -288,6 +290,7 @@ const HomePage = () => {
             }
         });
         setLastMonthBudget(tempLastMonthBudget);
+        setBudgetDisplay(tempCurrentMonthBudget);
         setCurrentMonthBudget(tempCurrentMonthBudget);
         console.log(lastMonthBudget);
     }
@@ -318,6 +321,16 @@ const HomePage = () => {
         setCurrentMonthSaving(tempCurrentMonth);
     }
 
+    function handleBudgetMonthDisplay() {
+        if (budgetDiplayBool === true) {
+            setBudgetDisplayBool(false);
+            setBudgetDisplay(lastMonthBudget);
+        } else {
+            setBudgetDisplayBool(true);
+            setBudgetDisplay(currentMonthBudget);
+        }
+    }
+
     return (
         <div className="container-for-whole-app">
             {income ? (
@@ -325,12 +338,24 @@ const HomePage = () => {
             ) : (
                 <CreateIncome createIncome={createIncome} />
             )}
-            {lastMonthBudget[0] ? (
-                <p className="last-month-toggle">See Last Month's Budget</p>
-            ) : null}
+            {budgetDiplayBool ? (
+                <p
+                    className="last-month-toggle"
+                    onClick={handleBudgetMonthDisplay}
+                >
+                    See Last Month's Budget
+                </p>
+            ) : (
+                <p
+                    className="last-month-toggle"
+                    onClick={handleBudgetMonthDisplay}
+                >
+                    See This Month's Budget
+                </p>
+            )}
             {income ? (
                 <Budget
-                    budgetsArray={currentMonthBudget}
+                    budgetsArray={budgetDiplay}
                     categoriesArray={categories}
                     income={income}
                     createBudget={createBudget}
