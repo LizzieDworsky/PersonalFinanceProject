@@ -287,8 +287,9 @@ const HomePage = () => {
                 tempLastMonthBudget.push(item);
             }
         });
-        console.log(tempLastMonthBudget);
+        setLastMonthBudget(tempLastMonthBudget);
         setCurrentMonthBudget(tempCurrentMonthBudget);
+        console.log(lastMonthBudget);
     }
 
     async function filterDebtForCurrentMonthOnly() {
@@ -324,6 +325,9 @@ const HomePage = () => {
             ) : (
                 <CreateIncome createIncome={createIncome} />
             )}
+            {lastMonthBudget[0] ? (
+                <p className="last-month-toggle">See Last Month's Budget</p>
+            ) : null}
             {income ? (
                 <Budget
                     budgetsArray={currentMonthBudget}

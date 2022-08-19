@@ -292,3 +292,9 @@ hr {
 .net-worth-total {
     margin-top: 1em;
 }
+
+.last-month-toggle {
+    font-size: 65%;
+    text-align: left;
+    margin-left: 22%;
+}
