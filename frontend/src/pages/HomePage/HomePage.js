@@ -16,6 +16,7 @@ const HomePage = () => {
     const [income, setIncome] = useState();
     const [budgets, setBudgets] = useState([]);
     const [currentMonthBudget, setCurrentMonthBudget] = useState([]);
+    const [lastMonthBudget, setLastMonthBudget] = useState([]);
     const [categories, setCategories] = useState([]);
     const [rerender, setRerender] = useState(false);
     const [debt, setDebt] = useState([]);
@@ -49,7 +50,7 @@ const HomePage = () => {
     }, [rerender]);
 
     useEffect(() => {
-        filterBudgetsForCurrentMonthOnly();
+        filterBudgetsByMonths();
         filterDebtForCurrentMonthOnly();
         filterSavingForCurrentMonthOnly();
     }, [budgets, debt, savings]);
@@ -117,7 +118,7 @@ const HomePage = () => {
                 }
             );
             setBudgets(response.data);
-            filterBudgetsForCurrentMonthOnly();
+            filterBudgetsByMonths();
         } catch (error) {
             console.log(error.response.data);
         }
@@ -273,17 +274,21 @@ const HomePage = () => {
         }
     }
 
-    async function filterBudgetsForCurrentMonthOnly() {
-        let tempCurrentMonth = [];
+    async function filterBudgetsByMonths() {
+        let tempCurrentMonthBudget = [];
+        let tempLastMonthBudget = [];
         budgets.map((item) => {
             let dateStr = item.date;
             let [year, month, day] = dateStr.split("-");
             month = parseInt(month - 1);
             if (year == currentYear && month === currentMonth) {
-                tempCurrentMonth.push(item);
+                tempCurrentMonthBudget.push(item);
+            } else if (year == currentYear && month === currentMonth - 1) {
+                tempLastMonthBudget.push(item);
             }
         });
-        setCurrentMonthBudget(tempCurrentMonth);
+        console.log(tempLastMonthBudget);
+        setCurrentMonthBudget(tempCurrentMonthBudget);
     }
 
     async function filterDebtForCurrentMonthOnly() {
